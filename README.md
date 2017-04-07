@@ -1,3 +1,7 @@
 # wdi-project-3
 
-hshshshsa
+Contributing Developers:
+* Joy Sutton
+* Matt Atkins
+* Blake Smith
+* Josh Seipel
