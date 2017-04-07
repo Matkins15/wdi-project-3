@@ -1,10 +1,15 @@
+require('dotenv').config();
+
 var express = require('express');
 var app = express();
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:project_three', function(){
-  console.log('Mongo DB connected');
+mongoose.connect(process.env.MONGODB_URI);
+
+mongoose.connection.on('error', function(err){
+  console.log('err');
+  process.exit(-1);
 });
 
 app.use(express.static(__dirname + '/public'));

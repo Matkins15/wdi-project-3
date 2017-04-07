@@ -22,6 +22,7 @@
   "homepage": "https://github.com/Matkins15/wdi-project-3#readme",
   "dependencies": {
     "angular": "^1.6.4",
+    "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "glob": "^7.1.1",
     "mongoose": "^4.9.3"
