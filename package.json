@@ -1,0 +1,21 @@
+{
+  "name": "wdi-project-3",
+  "version": "1.0.0",
+  "description": "hshshshsa",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matkins15/wdi-project-3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matkins15/wdi-project-3/issues"
+  },
+  "homepage": "https://github.com/Matkins15/wdi-project-3#readme"
+}
