@@ -3,6 +3,7 @@ require('angular-ui-router');
 
 angular.module('projectThree', ['ui.router'])
 	   .config(uiRouterSetup)
+
 // Added ui-router dependency - JS
 
 // uiRouter setup with $state param dependencies - JS
@@ -11,7 +12,7 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 
 	$stateProvider
 		.state('home', {
-			url: '/',
+			url: '/home',
 			template: '<home></home>'
 		})
 

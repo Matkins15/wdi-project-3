@@ -63,11 +63,23 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+AboutController.$inject = [];
+
+function AboutController() {
+  const vm = this;
+}
+
+module.exports = AboutController;
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 HomeController.$inject = [];
@@ -79,13 +91,14 @@ function HomeController() {
 module.exports = HomeController;
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const angular = __webpack_require__(5);
-__webpack_require__(3);
+const angular = __webpack_require__(7);
+__webpack_require__(5);
 
 angular.module('projectThree', ['ui.router']).config(uiRouterSetup);
+
 // Added ui-router dependency - JS
 
 // uiRouter setup with $state param dependencies - JS
@@ -93,7 +106,7 @@ uiRouterSetup.$inject = ['$stateProvider', '$urlRouterProvider'];
 function uiRouterSetup($stateProvider, $urlRouterProvider) {
 
 	$stateProvider.state('home', {
-		url: '/',
+		url: '/home',
 		template: '<home></home>'
 	}).state('about', {
 		url: '/about',
@@ -105,11 +118,26 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 }
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(0);
-const template = __webpack_require__(6);
+const template = __webpack_require__(8);
+
+const component = {
+  controller: controller,
+  template: template
+
+};
+
+angular.module('projectThree').component('about', component);
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const controller = __webpack_require__(1);
+const template = __webpack_require__(9);
 
 const component = {
 	contoller: controller,
@@ -119,7 +147,7 @@ const component = {
 angular.module('projectThree').component('home', component);
 
 /***/ }),
-/* 3 */
+/* 5 */
 /***/ (function(module, exports) {
 
 /**
@@ -4808,7 +4836,7 @@ angular.module('ui.router.state')
 })(window, window.angular);
 
 /***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, exports) {
 
 /**
@@ -38185,26 +38213,34 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(4);
+__webpack_require__(6);
 module.exports = angular;
 
 
 /***/ }),
-/* 6 */
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports = "<p class=\"about\">\n  <h1>This is the abouts page</h1>\n</p>\n";
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = "<p class=\"home\">\n\t<h1>This is our 'Home Page' - Project Three</h1>\n</p>\n<!-- Can only have one base component. Added by JS. -->\n";
 
 /***/ }),
-/* 7 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(1);
 __webpack_require__(2);
-module.exports = __webpack_require__(0);
+__webpack_require__(3);
+__webpack_require__(0);
+__webpack_require__(4);
+module.exports = __webpack_require__(1);
 
 
 /***/ })
