@@ -7,10 +7,11 @@ var bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
 
+console.log(process.env.MONGODB_URI); //
 mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('error', function(err){
-  console.log('err');
+  console.log(err);
   process.exit(-1);
 });
 
