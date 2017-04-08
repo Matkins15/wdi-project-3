@@ -91,9 +91,13 @@ angular.module('projectThree', ['ui.router']).config(uiRouterSetup);
 // uiRouter setup with $state param dependencies - JS
 uiRouterSetup.$inject = ['$stateProvider', '$urlRouterProvider'];
 function uiRouterSetup($stateProvider, $urlRouterProvider) {
+
 	$stateProvider.state('home', {
 		url: '/',
 		template: '<home></home>'
+	}).state('about', {
+		url: '/about',
+		template: '<about></about>'
 	});
 
 	// This is saying that if the urlRouterProvider is not working, use '/'.
