@@ -111,6 +111,9 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 	}).state('about', {
 		url: '/about',
 		template: '<about></about>'
+	}).state('signup', {
+		url: '/signup',
+		template: '<signup></signup>'
 	});
 
 	// This is saying that if the urlRouterProvider is not working, use '/'.
@@ -38224,7 +38227,7 @@ module.exports = angular;
 /* 8 */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"about\">\n  <h1>This is the abouts page</h1>\n</p>\n";
+module.exports = "\n<p class=\"about\">\n  <h1>This is the abouts page</h1>\n</p>\n<h1>ABOUT PAGE</h1>\n\n";
 
 /***/ }),
 /* 9 */
