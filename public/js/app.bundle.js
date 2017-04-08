@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -92,10 +92,34 @@ module.exports = HomeController;
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+LoginController.$inject = [];
+
+function LoginController() {
+	const vm = this;
+};
+
+module.exports = LoginController;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+SignUpController.$inject = [];
+
+function SignUpController() {
+	const vm = this;
+}
+
+module.exports = SignUpController;
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const angular = __webpack_require__(7);
-__webpack_require__(5);
+const angular = __webpack_require__(11);
+__webpack_require__(9);
 
 angular.module('projectThree', ['ui.router']).config(uiRouterSetup);
 
@@ -114,6 +138,9 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 	}).state('signup', {
 		url: '/signup',
 		template: '<signup></signup>'
+	}).state('login', {
+		url: '/login',
+		template: '<login></login>'
 	});
 
 	// This is saying that if the urlRouterProvider is not working, use '/'.
@@ -121,11 +148,11 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 }
 
 /***/ }),
-/* 3 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(0);
-const template = __webpack_require__(8);
+const template = __webpack_require__(12);
 
 const component = {
   controller: controller,
@@ -136,11 +163,11 @@ const component = {
 angular.module('projectThree').component('about', component);
 
 /***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(1);
-const template = __webpack_require__(9);
+const template = __webpack_require__(13);
 
 const component = {
 	contoller: controller,
@@ -150,7 +177,35 @@ const component = {
 angular.module('projectThree').component('home', component);
 
 /***/ }),
-/* 5 */
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const controller = __webpack_require__(2);
+const template = __webpack_require__(14);
+
+const component = {
+	controller: controller,
+	template: template
+};
+
+angular.module('projectThree').component('login', component);
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const controller = __webpack_require__(3);
+const template = __webpack_require__(15);
+
+const component = {
+  controller: controller,
+  template: template
+};
+
+angular.module('projectThree').component('signup', component);
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports) {
 
 /**
@@ -4839,7 +4894,7 @@ angular.module('ui.router.state')
 })(window, window.angular);
 
 /***/ }),
-/* 6 */
+/* 10 */
 /***/ (function(module, exports) {
 
 /**
@@ -38216,34 +38271,50 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
-/* 7 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(6);
+__webpack_require__(10);
 module.exports = angular;
 
 
 /***/ }),
-/* 8 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = "\n<p class=\"about\">\n  <h1>This is the abouts page</h1>\n</p>\n<h1>ABOUT PAGE</h1>\n\n";
 
 /***/ }),
-/* 9 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = "<p class=\"home\">\n\t<h1>This is our 'Home Page' - Project Three</h1>\n</p>\n<!-- Can only have one base component. Added by JS. -->\n";
 
 /***/ }),
-/* 10 */
+/* 14 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container loginPage\">\n  <form action=\"/sessions/login\" method=\"post\">\n    <div class=\"header\">\n      <h2>User Login!</h2>\n    </div>\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" placeholder=\"Enter Email\" name=\"email\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"password\" placeholder=\"Enter Password\" name=\"password\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <button type=\"submit\">Login</button>\n      <input type=\"checkbox\" checked=\"checked\"> Remember me\n    </div>\n    </div>\n  </form>\n</div>\n";
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Sign Up</h2>\n\n<div class=\"container signup\">\n  <form action=\"/users\" method=\"post\">\n    <div>\n      <label for=\"firstName\">first name</label>\n      <input type=\"text\" name=\"firstName\" required=\"required\">\n    </div>\n\n    <div>\n      <label for=\"lastName\">last name</label>\n      <input type=\"text\" name=\"lastName\" required=\"required\">\n    </div>\n\n    <div>\n      <label for=\"email\">email</label>\n      <input type=\"email\" name=\"email\" required=\"required\">\n    </div>\n\n    <div>\n      <label for=\"password\">password</label>\n      <input type=\"text\" name=\"password\" required=\"required\">\n    </div>\n\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n";
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2);
-__webpack_require__(3);
-__webpack_require__(0);
 __webpack_require__(4);
-module.exports = __webpack_require__(1);
+__webpack_require__(5);
+__webpack_require__(0);
+__webpack_require__(6);
+__webpack_require__(1);
+__webpack_require__(7);
+__webpack_require__(2);
+__webpack_require__(8);
+module.exports = __webpack_require__(3);
 
 
 /***/ })
