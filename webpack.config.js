@@ -1,5 +1,5 @@
 require('webpack');
-var glob = require('glob');
+const glob = require('glob');
 
 module.exports = {
     context: __dirname,
