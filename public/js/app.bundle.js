@@ -63,11 +63,23 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+AboutController.$inject = [];
+
+function AboutController() {
+  const vm = this;
+}
+
+module.exports = AboutController;
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 HomeController.$inject = [];
@@ -79,11 +91,23 @@ function HomeController() {
 module.exports = HomeController;
 
 /***/ }),
-/* 1 */
+/* 2 */
+/***/ (function(module, exports) {
+
+SignUpController.$inject = [];
+
+function SignUpController() {
+	const vm = this;
+}
+
+module.exports = SignUpController;
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const angular = __webpack_require__(5);
-__webpack_require__(3);
+const angular = __webpack_require__(9);
+__webpack_require__(7);
 
 angular.module('projectThree', ['ui.router']).config(uiRouterSetup);
 // Added ui-router dependency - JS
@@ -98,6 +122,9 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 	}).state('about', {
 		url: '/about',
 		template: '<about></about>'
+	}).state('signup', {
+		url: '/signup',
+		template: '<signup></signup>'
 	});
 
 	// This is saying that if the urlRouterProvider is not working, use '/'.
@@ -105,11 +132,26 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 }
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(0);
-const template = __webpack_require__(6);
+const template = __webpack_require__(10);
+
+const component = {
+  controller: controller,
+  template: template
+
+};
+
+angular.module('projectThree').component('about', component);
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const controller = __webpack_require__(1);
+const template = __webpack_require__(11);
 
 const component = {
 	contoller: controller,
@@ -119,7 +161,21 @@ const component = {
 angular.module('projectThree').component('home', component);
 
 /***/ }),
-/* 3 */
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const controller = __webpack_require__(2);
+const template = __webpack_require__(12);
+
+const component = {
+  controller: controller,
+  template: template
+};
+
+angular.module('projectThree').component('signup', component);
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports) {
 
 /**
@@ -4808,7 +4864,7 @@ angular.module('ui.router.state')
 })(window, window.angular);
 
 /***/ }),
-/* 4 */
+/* 8 */
 /***/ (function(module, exports) {
 
 /**
@@ -38185,26 +38241,42 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
-/* 5 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(4);
+__webpack_require__(8);
 module.exports = angular;
 
 
 /***/ }),
-/* 6 */
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>ABOUT PAGE</h1>\n";
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports = "<p class=\"home\">\n\t<h1>This is our 'Home Page' - Project Three</h1>\n</p>\n<!-- Can only have one base component. Added by JS. -->\n";
 
 /***/ }),
-/* 7 */
+/* 12 */
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Sign Up</h2>\n\n<div class=\"container signup\">\n  <form action=\"/users\" method=\"post\">\n    <div>\n      <label for=\"firstName\">first name</label>\n      <input type=\"text\" name=\"firstName\" required=\"required\">\n    </div>\n\n    <div>\n      <label for=\"lastName\">last name</label>\n      <input type=\"text\" name=\"lastName\" required=\"required\">\n    </div>\n\n    <div>\n      <label for=\"email\">email</label>\n      <input type=\"email\" name=\"email\" required=\"required\">\n    </div>\n\n    <div>\n      <label for=\"password\">password</label>\n      <input type=\"text\" name=\"password\" required=\"required\">\n    </div>\n\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n";
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(3);
+__webpack_require__(4);
+__webpack_require__(0);
+__webpack_require__(5);
 __webpack_require__(1);
-__webpack_require__(2);
-module.exports = __webpack_require__(0);
+__webpack_require__(6);
+module.exports = __webpack_require__(2);
 
 
 /***/ })
