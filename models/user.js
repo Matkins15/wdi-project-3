@@ -13,4 +13,4 @@ const UserSchema = mongoose.Schema({
 	jobs: [JobsSchema]
 });
 
-module.exports = mongoose.model('User', UserSchema)
+module.exports = mongoose.model('User', UserSchema);

@@ -23,4 +23,4 @@ JobsSchema.pre('save', function(next) {
 	next();
 });
 
-module.exports = mongoose.model('Jobs', JobsSchema)
+module.exports = mongoose.model('Jobs', JobsSchema);
