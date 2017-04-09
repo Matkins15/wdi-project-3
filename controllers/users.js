@@ -57,14 +57,32 @@ router.post('/', function createUserAction(req, res){
 
 
 //POST User.Jobs
+router.post('/:userId/job', function createJobAction(req, res) {
+	console.log('### User.Job post route ###');
+	User.findById(req.params.userId);
+		.exec(function(err, user) {
+			user.jobs.push(new Jobs(req.body));
+				console.log("sent to add");
+			user.save(function(err){
+				if (err) console.log(err);
+
+				response.json({ jobs: jobs });
+			});
+		});
+
+});
 
 //POST User.Jobs.Notes
 
+
 //PATCH User.Jobs
+
 
 //PATCH User.Jobs.Notes //FOR LATER, STRETCH GOAL
 
+
 //DELETE User.Jobs
+
 
 //DELETE User.Jobs.Notes
 
