@@ -7,10 +7,15 @@ var Jobs = require('../models/schema')
 var Notes = require('../models/schema');
 
 //GET '/'
+router.get('/', function homeAction(request, response){
 
-//GET User
+});
+
+//GET User Dashboard
+// router.get('/')
 
 //GET User.Jobs
+router.get('/:id',)
 
 //GET User.Jobs.Notes
 
