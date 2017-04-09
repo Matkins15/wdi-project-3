@@ -73,7 +73,22 @@ router.post('/:userId/job', function createJobAction(req, res) {
 });
 
 //POST User.Jobs.Notes
+router.post('/:userId/job/:id/note', function createNoteAction(req, res) {
+	console.log('### User.Job.Note ###');
+	User.findById(req.params.userId);
+		.exec(function(err, user) {
+			Jobs.findById(req.params.id);
+				.exec(function(err, jobs) {
+					user.jobs.notes.push(new Notes(req.body));
+						console.log('### Note added to DB ###');
+					user.save(function(err) {
+						if (err) console.log(err);
 
+						response.json({ notes: notes });
+					});
+				});
+		});
+});
 
 //PATCH User.Jobs
 
