@@ -1,13 +1,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-
-
 const NotesSchema = mongoose.Schema({
 	notes: {
 		type: String;
 		required: true
-	},
+		},
 	created_at: Date
 
 });
@@ -16,7 +14,7 @@ const JobsSchema = mongoose.Schema({
 	company: {
 		type: String,
 		required: true
-	},
+		},
 	job_title: String,
 	phone: String,
 	email: String,
