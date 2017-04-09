@@ -38326,7 +38326,7 @@ module.exports = "<div class=\"container loginPage\">\n  <form action=\"/user\" 
 /* 17 */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Sign Up</h2>\n\n<div class=\"container signup\">\n  <form action=\"/users\" method=\"post\">\n    <div>\n      <label for=\"firstName\">first name</label>\n      <input type=\"text\" name=\"firstName\" required=\"required\">\n    </div>\n\n    <div>\n      <label for=\"lastName\">last name</label>\n      <input type=\"text\" name=\"lastName\" required=\"required\">\n    </div>\n\n    <div>\n      <label for=\"email\">email</label>\n      <input type=\"email\" name=\"email\" required=\"required\">\n    </div>\n\n    <div>\n      <label for=\"password\">password</label>\n      <input type=\"text\" name=\"password\" required=\"required\">\n    </div>\n\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n";
+module.exports = "<h2>Sign Up</h2>\n<br />\n<div class=\"container signup\">\n  <form action=\"/users\" method=\"post\">\n    <div>\n      <label for=\"firstName\">first name</label>\n      <input type=\"text\" name=\"firstName\" required=\"required\">\n    </div>\n    <br />\n\n    <div>\n      <label for=\"lastName\">last name</label>\n      <input type=\"text\" name=\"lastName\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"email\">email</label>\n      <input type=\"email\" name=\"email\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"password\">password</label>\n      <input type=\"text\" name=\"password\" required=\"required\">\n    </div>\n\n    <br />\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n";
 
 /***/ }),
 /* 18 */
