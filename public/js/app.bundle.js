@@ -38320,7 +38320,7 @@ module.exports = "<p class=\"home\">\n\t<h1>This is our 'Home Page' - Project Th
 /* 16 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container loginPage\">\n  <form action=\"/user\" method=\"POST\">\n    <div class=\"header\">\n      <h2>User Login!</h2>\n    </div>\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" placeholder=\"Enter Email\" name=\"email\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"password\" placeholder=\"Enter Password\" name=\"password\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <button type=\"submit\">Login</button>\n      <input type=\"checkbox\" checked=\"checked\"> Remember me\n    </div>\n    </div>\n  </form>\n</div>\n";
+module.exports = "<div class=\"container loginPage\">\n  <form action=\"/user\" method=\"GET\">\n    <div class=\"header\">\n      <h2>User Login!</h2>\n    </div>\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" placeholder=\"Enter Email\" name=\"email\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"password\" placeholder=\"Enter Password\" name=\"password\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <button type=\"submit\">Login</button>\n      <input type=\"checkbox\" checked=\"checked\"> Remember me\n    </div>\n    </div>\n  </form>\n</div>\n";
 
 /***/ }),
 /* 17 */

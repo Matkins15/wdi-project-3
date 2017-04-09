@@ -5,7 +5,7 @@ var express = require('express'),
 
 var  usersController = require('../controllers/users.js');
 
-router.route('/users')
+router.route('/user')
 	.get(usersController.getAll)
 	.post(usersController.createUserAction);
 
