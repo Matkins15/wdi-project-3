@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 const NotesSchema = mongoose.Schema({
 	notes: {
-		type: String;
+		type: String,
 		required: true
 		},
 	created_at: Date

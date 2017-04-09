@@ -59,7 +59,7 @@ router.post('/', function createUserAction(req, res){
 //POST User.Jobs
 router.post('/:userId/job', function createJobAction(req, res) {
 	console.log('### User.Job post route ###');
-	User.findById(req.params.userId);
+	User.findById(req.params.userId)
 		.exec(function(err, user) {
 			user.jobs.push(new Jobs(req.body));
 				console.log("sent to add");
@@ -75,9 +75,9 @@ router.post('/:userId/job', function createJobAction(req, res) {
 //POST User.Jobs.Notes
 router.post('/:userId/job/:id/note', function createNoteAction(req, res) {
 	console.log('### User.Job.Note ###');
-	User.findById(req.params.userId);
+	User.findById(req.params.userId)
 		.exec(function(err, user) {
-			Jobs.findById(req.params.id);
+			Jobs.findById(req.params.id)
 				.exec(function(err, jobs) {
 					user.jobs.notes.push(new Notes(req.body));
 						console.log('### Note added to DB ###');
