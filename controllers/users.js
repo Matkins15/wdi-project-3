@@ -2,9 +2,9 @@ var express = require('express')
 var router = express.Router()
 var bodyParser = require('body-parser')
 var methodOverride = require('method-override')
-var User = require('../models/schema')
-var Jobs = require('../models/schema')
-var Notes = require('../models/schema');
+var User = require('../models/schema.js');
+// var Jobs = require('../models/schema')
+// var Notes = require('../models/schema');
 
 //GET '/'
 router.get('/', function homeAction(request, response){
@@ -43,10 +43,16 @@ router.get('/:userId/jobs/:id', function jobAction(req, res){
 });
 
 //POST User
-router.post('/', function createUserAction(req, res){
+router.post('/', function createUserAction(request, response){
 	console.log('### User Post Route ###');
 
 	var user = new User(request.body);
+
+
+	// ({
+	// 	email: request.body.email,
+	// 	password: request.body.password
+	// });
 
 	user.save(function(error){
 		if(error) response.json({ message: 'Could not create user' + error});
@@ -59,7 +65,7 @@ router.post('/', function createUserAction(req, res){
 //POST User.Jobs
 router.post('/:userId/job', function createJobAction(req, res) {
 	console.log('### User.Job post route ###');
-	User.findById(req.params.userId);
+	User.findById(req.params.userId)
 		.exec(function(err, user) {
 			user.jobs.push(new Jobs(req.body));
 				console.log("sent to add");
@@ -75,9 +81,9 @@ router.post('/:userId/job', function createJobAction(req, res) {
 //POST User.Jobs.Notes
 router.post('/:userId/job/:id/note', function createNoteAction(req, res) {
 	console.log('### User.Job.Note ###');
-	User.findById(req.params.userId);
+	User.findById(req.params.userId)
 		.exec(function(err, user) {
-			Jobs.findById(req.params.id);
+			Jobs.findById(req.params.id)
 				.exec(function(err, jobs) {
 					user.jobs.notes.push(new Notes(req.body));
 						console.log('### Note added to DB ###');
