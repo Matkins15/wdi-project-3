@@ -40,10 +40,21 @@ router.get('/:userId/jobs/:id', function jobAction(req, res){
 		response.json({targetJob: targetJob});
 	});
 
-
 });
 
 //POST User
+router.post('/', function createUserAction(req, res){
+	console.log('### User Post Route ###');
+
+	var user = new User(request.body);
+
+	user.save(function(error){
+		if(error) response.json({ message: 'Could not create user' + error});
+
+		response.json({ user: user });
+	});
+});
+
 
 //POST User.Jobs
 
