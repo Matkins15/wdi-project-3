@@ -14,10 +14,34 @@ router.get('/', function homeAction(request, response){
 //GET User Dashboard
 // router.get('/')
 
-//GET User.Jobs
-router.get('/:id',)
+//GET User.Id
+router.get('/:id', function userAction(req, res){
+	console.log('### User get route ###');
+	var id = request.params.id;
 
-//GET User.Jobs.Notes
+	User.findById({_id: id}, function(error, user){
+		if(error) response.json({message: 'Could not create user because' + error});
+
+		response.json({user: user});
+	}).select('-__v');
+});
+
+//GET User.Jobs.byId
+router.get('/:userId/jobs/:id', function jobAction(req, res){
+	console.log('### JOB BY ID ###');
+	User.findById(req.params.userId)
+	.exec(function(err, user){
+		if(err) { return console.log(err); }
+
+		var targetUser = user;
+		var jobsArray = user.jobs;
+		var targetJob = jobsArray.id(req.params.id);
+
+		response.json({targetJob: targetJob});
+	});
+
+
+});
 
 //POST User
 
