@@ -63,7 +63,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 22);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+>>>>>>> dfa857b5ae1a836c295774913eef144a1b61f5ad
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -127,6 +131,7 @@ function SignUpController() {
 module.exports = SignUpController;
 
 /***/ }),
+<<<<<<< HEAD
 /* 5 */
 /***/ (function(module, exports) {
 
@@ -144,6 +149,13 @@ module.exports = UserController;
 
 const angular = __webpack_require__(15);
 __webpack_require__(13);
+=======
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const angular = __webpack_require__(11);
+__webpack_require__(9);
+>>>>>>> dfa857b5ae1a836c295774913eef144a1b61f5ad
 
 angular.module('projectThree', ['ui.router']).config(uiRouterSetup);
 
@@ -172,11 +184,19 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(0);
 const template = __webpack_require__(16);
+=======
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const controller = __webpack_require__(0);
+const template = __webpack_require__(12);
+>>>>>>> dfa857b5ae1a836c295774913eef144a1b61f5ad
 
 const component = {
   controller: controller,
@@ -187,11 +207,19 @@ const component = {
 angular.module('projectThree').component('about', component);
 
 /***/ }),
+<<<<<<< HEAD
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(1);
 const template = __webpack_require__(17);
+=======
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const controller = __webpack_require__(1);
+const template = __webpack_require__(13);
+>>>>>>> dfa857b5ae1a836c295774913eef144a1b61f5ad
 
 const component = {
 	contoller: controller,
@@ -201,11 +229,19 @@ const component = {
 angular.module('projectThree').component('home', component);
 
 /***/ }),
+<<<<<<< HEAD
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(2);
 const template = __webpack_require__(18);
+=======
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const controller = __webpack_require__(2);
+const template = __webpack_require__(14);
+>>>>>>> dfa857b5ae1a836c295774913eef144a1b61f5ad
 
 const component = {
 	controller: controller,
@@ -215,6 +251,7 @@ const component = {
 angular.module('projectThree').component('jobs', component);
 
 /***/ }),
+<<<<<<< HEAD
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -234,6 +271,13 @@ angular.module('projectThree').component('login', component);
 
 const controller = __webpack_require__(4);
 const template = __webpack_require__(20);
+=======
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const controller = __webpack_require__(3);
+const template = __webpack_require__(15);
+>>>>>>> dfa857b5ae1a836c295774913eef144a1b61f5ad
 
 const component = {
   controller: controller,
@@ -243,6 +287,7 @@ const component = {
 angular.module('projectThree').component('signup', component);
 
 /***/ }),
+<<<<<<< HEAD
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -258,6 +303,9 @@ angular.module('projectThree').component('user', component);
 
 /***/ }),
 /* 13 */
+=======
+/* 9 */
+>>>>>>> dfa857b5ae1a836c295774913eef144a1b61f5ad
 /***/ (function(module, exports) {
 
 /**
@@ -4946,7 +4994,11 @@ angular.module('ui.router.state')
 })(window, window.angular);
 
 /***/ }),
+<<<<<<< HEAD
 /* 14 */
+=======
+/* 10 */
+>>>>>>> dfa857b5ae1a836c295774913eef144a1b61f5ad
 /***/ (function(module, exports) {
 
 /**
@@ -38323,26 +38375,42 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
+<<<<<<< HEAD
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
+=======
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(10);
+>>>>>>> dfa857b5ae1a836c295774913eef144a1b61f5ad
 module.exports = angular;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 16 */
+=======
+/* 12 */
+>>>>>>> dfa857b5ae1a836c295774913eef144a1b61f5ad
 /***/ (function(module, exports) {
 
 module.exports = "\n<p class=\"about\">\n  <h1>This is the abouts page</h1>\n</p>\n<h1>ABOUT PAGE</h1>\n\n";
 
 /***/ }),
+<<<<<<< HEAD
 /* 17 */
+=======
+/* 13 */
+>>>>>>> dfa857b5ae1a836c295774913eef144a1b61f5ad
 /***/ (function(module, exports) {
 
 module.exports = "<p class=\"home\">\n\t<h1>This is our 'Home Page' - Project Three</h1>\n</p>\n<!-- Can only have one base component. Added by JS. -->\n";
 
 /***/ }),
+<<<<<<< HEAD
 /* 18 */
 /***/ (function(module, exports) {
 
@@ -38350,17 +38418,25 @@ module.exports = "<h2>Jobs Board</h2>\n<br />\n<div class=\"container signup\">\
 
 /***/ }),
 /* 19 */
+=======
+/* 14 */
+>>>>>>> dfa857b5ae1a836c295774913eef144a1b61f5ad
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container loginPage\">\n  <form action=\"/user\" method=\"GET\">\n    <div class=\"header\">\n      <h2>User Login!</h2>\n    </div>\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" placeholder=\"Enter Email\" name=\"email\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"password\" placeholder=\"Enter Password\" name=\"password\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <button type=\"submit\">Login</button>\n      <input type=\"checkbox\" checked=\"checked\"> Remember me\n    </div>\n    </div>\n  </form>\n</div>\n";
 
 /***/ }),
+<<<<<<< HEAD
 /* 20 */
+=======
+/* 15 */
+>>>>>>> dfa857b5ae1a836c295774913eef144a1b61f5ad
 /***/ (function(module, exports) {
 
 module.exports = "<h2>Sign Up</h2>\n<br />\n<div class=\"container signup\">\n  <form action=\"/users\" method=\"post\">\n    <div>\n      <label for=\"firstName\">First name</label>\n      <input type=\"text\" name=\"firstName\" required=\"required\">\n    </div>\n    <br />\n\n    <div>\n      <label for=\"lastName\">Last name</label>\n      <input type=\"text\" name=\"lastName\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" name=\"email\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"text\" name=\"password\" required=\"required\">\n    </div>\n\n    <br />\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n";
 
 /***/ }),
+<<<<<<< HEAD
 /* 21 */
 /***/ (function(module, exports) {
 
@@ -38383,6 +38459,20 @@ __webpack_require__(11);
 __webpack_require__(4);
 __webpack_require__(12);
 module.exports = __webpack_require__(5);
+=======
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(4);
+__webpack_require__(5);
+__webpack_require__(0);
+__webpack_require__(6);
+__webpack_require__(1);
+__webpack_require__(7);
+__webpack_require__(2);
+__webpack_require__(8);
+module.exports = __webpack_require__(3);
+>>>>>>> dfa857b5ae1a836c295774913eef144a1b61f5ad
 
 
 /***/ })

@@ -26,5 +26,5 @@ app.use('/user', usersController);
 
 
 app.listen(process.env.PORT || 3000, function(){
-  console.log("App listening succesfully")
+  console.log("⚡⚡ App listening succesfully ⚡⚡")
 });
