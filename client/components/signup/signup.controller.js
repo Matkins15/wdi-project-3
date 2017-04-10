@@ -5,7 +5,6 @@ function SignUpController(UsersService, $state) {
 	// console.log('controller has been loaded');
 	vm.newUser = {};
 	vm.addNewUser = addNewUser;
-	vm.dog = 'fido';
 	activate();
 	function activate() {}
 

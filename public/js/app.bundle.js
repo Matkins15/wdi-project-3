@@ -137,7 +137,6 @@ function SignUpController(UsersService, $state) {
 	// console.log('controller has been loaded');
 	vm.newUser = {};
 	vm.addNewUser = addNewUser;
-	vm.dog = 'fido';
 	activate();
 	function activate() {}
 
@@ -38473,7 +38472,7 @@ module.exports = "<div class=\"form-group\">\n  <label for=\"comment\">Note:</la
 /* 26 */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Sign Up</h2>\n<br />\n<div> dog: {{ $ctrl.dog }}  </div>\n<div class=\"container signup\">\n<!--   <form action=\"/users\" method=\"post\"> -->\n  <form ng-submit=\"$ctrl.addNewUser()\" id=\"newUser\">\n    <div>\n      <label for=\"firstName\">First name</label>\n      <input type=\"text\" ng-model=\"$ctrl.newUser.firstName\" name=\"firstName\" required=\"required\">\n    </div>\n    <br />\n\n    <div>\n      <label for=\"lastName\">Last name</label>\n      <input type=\"text\" name=\"lastName\" ng-model=\"$ctrl.newUser.lastName\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" name=\"email\" ng-model=\"$ctrl.newUser.email\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"text\" name=\"password\" ng-model=\"$ctrl.newUser.password\" required=\"required\">\n    </div>\n\n    <br />\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n";
+module.exports = "<h2>Sign Up</h2>\n<br />\n\n<div class=\"container signup\">\n<!--   <form action=\"/users\" method=\"post\"> -->\n  <form ng-submit=\"$ctrl.addNewUser()\" id=\"newUser\">\n    <div>\n      <label for=\"firstName\">First name</label>\n      <input type=\"text\" ng-model=\"$ctrl.newUser.firstName\" name=\"firstName\" required=\"required\">\n    </div>\n    <br />\n\n    <div>\n      <label for=\"lastName\">Last name</label>\n      <input type=\"text\" name=\"lastName\" ng-model=\"$ctrl.newUser.lastName\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" name=\"email\" ng-model=\"$ctrl.newUser.email\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"text\" name=\"password\" ng-model=\"$ctrl.newUser.password\" required=\"required\">\n    </div>\n\n    <br />\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n";
 
 /***/ }),
 /* 27 */
