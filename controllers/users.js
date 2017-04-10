@@ -29,16 +29,18 @@ router.get('/:id', function userAction(request, response){
 //GET User.Jobs.byId
 router.get('/:userId/jobs/:id', function jobAction(request, response){
 	console.log('### JOB BY ID ###');
+		var userId = request.params.userId;
 
 	User.findById(request.params.userId)
 	.exec(function(err, user){
+		console.log('Found user by id');
 		if(err) { return console.log(err); }
 
 		var targetUser = user;
 		var jobsArray = user.jobs;
 		var targetJob = jobsArray.id(request.params.id);
-
-		response.json({targetJob: targetJob});
+		console.log('Got job by ID' + targetJob);
+		response.json({ targetJob: targetJob });
 	});
 
 });
@@ -64,7 +66,7 @@ router.post('/', function createUserAction(request, response){
 
 
 //POST User.Jobs
-router.post('/:userId/job', function createJobAction(request, response) {
+router.post('/:userId/jobs', function createJobAction(request, response) {
 	console.log('### User.Job post route ###');
 	User.findById(request.params.userId)
 		.exec(function(err, user) {
@@ -81,7 +83,7 @@ router.post('/:userId/job', function createJobAction(request, response) {
 });
 
 //POST User.Jobs.Notes
-router.post('/:userId/job/:id/note', function createNoteAction(req, res) {
+router.post('/:userId/jobs/:id/note', function createNoteAction(req, res) {
 	console.log('### User.Job.Note ###');
 	User.findById(req.params.userId)
 		.exec(function(err, user) {
