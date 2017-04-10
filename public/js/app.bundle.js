@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 19);
+/******/ 	return __webpack_require__(__webpack_require__.s = 22);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -94,6 +94,18 @@ module.exports = HomeController;
 /* 2 */
 /***/ (function(module, exports) {
 
+JobsController.$inject = [];
+
+function JobsController() {
+	const vm = this;
+}
+
+module.exports = JobsController;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
 LoginController.$inject = [];
 
 function LoginController() {
@@ -103,7 +115,7 @@ function LoginController() {
 module.exports = LoginController;
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 SignUpController.$inject = [];
@@ -115,7 +127,7 @@ function SignUpController() {
 module.exports = SignUpController;
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 UserController.$inject = [];
@@ -127,11 +139,11 @@ function UserController() {
 module.exports = UserController;
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const angular = __webpack_require__(13);
-__webpack_require__(11);
+const angular = __webpack_require__(15);
+__webpack_require__(13);
 
 angular.module('projectThree', ['ui.router']).config(uiRouterSetup);
 
@@ -160,11 +172,11 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 }
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(0);
-const template = __webpack_require__(14);
+const template = __webpack_require__(16);
 
 const component = {
   controller: controller,
@@ -175,11 +187,11 @@ const component = {
 angular.module('projectThree').component('about', component);
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(1);
-const template = __webpack_require__(15);
+const template = __webpack_require__(17);
 
 const component = {
 	contoller: controller,
@@ -189,11 +201,25 @@ const component = {
 angular.module('projectThree').component('home', component);
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(2);
-const template = __webpack_require__(16);
+const template = __webpack_require__(18);
+
+const component = {
+	controller: controller,
+	template: template
+};
+
+angular.module('projectThree').component('jobs', component);
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const controller = __webpack_require__(3);
+const template = __webpack_require__(19);
 
 const component = {
 	controller: controller,
@@ -203,11 +229,11 @@ const component = {
 angular.module('projectThree').component('login', component);
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const controller = __webpack_require__(3);
-const template = __webpack_require__(17);
+const controller = __webpack_require__(4);
+const template = __webpack_require__(20);
 
 const component = {
   controller: controller,
@@ -217,11 +243,11 @@ const component = {
 angular.module('projectThree').component('signup', component);
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const controller = __webpack_require__(4);
-const template = __webpack_require__(18);
+const controller = __webpack_require__(5);
+const template = __webpack_require__(21);
 
 const component = {
 	contoller: controller,
@@ -231,7 +257,7 @@ const component = {
 angular.module('projectThree').component('user', component);
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports) {
 
 /**
@@ -4920,7 +4946,7 @@ angular.module('ui.router.state')
 })(window, window.angular);
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports) {
 
 /**
@@ -38297,58 +38323,66 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(12);
+__webpack_require__(14);
 module.exports = angular;
 
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports) {
-
-module.exports = "\n<p class=\"about\">\n  <h1>This is the abouts page</h1>\n</p>\n<h1>ABOUT PAGE</h1>\n\n";
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
-
-module.exports = "<p class=\"home\">\n\t<h1>This is our 'Home Page' - Project Three</h1>\n</p>\n<!-- Can only have one base component. Added by JS. -->\n";
 
 /***/ }),
 /* 16 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container loginPage\">\n  <form action=\"/user\" method=\"GET\">\n    <div class=\"header\">\n      <h2>User Login!</h2>\n    </div>\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" placeholder=\"Enter Email\" name=\"email\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"password\" placeholder=\"Enter Password\" name=\"password\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <button type=\"submit\">Login</button>\n      <input type=\"checkbox\" checked=\"checked\"> Remember me\n    </div>\n    </div>\n  </form>\n</div>\n";
+module.exports = "\n<p class=\"about\">\n  <h1>This is the abouts page</h1>\n</p>\n<h1>ABOUT PAGE</h1>\n\n";
 
 /***/ }),
 /* 17 */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Sign Up</h2>\n<br />\n<div class=\"container signup\">\n  <form action=\"/users\" method=\"post\">\n    <div>\n      <label for=\"firstName\">First name</label>\n      <input type=\"text\" name=\"firstName\" required=\"required\">\n    </div>\n    <br />\n\n    <div>\n      <label for=\"lastName\">Last name</label>\n      <input type=\"text\" name=\"lastName\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" name=\"email\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"text\" name=\"password\" required=\"required\">\n    </div>\n\n    <br />\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n";
+module.exports = "<p class=\"home\">\n\t<h1>This is our 'Home Page' - Project Three</h1>\n</p>\n<!-- Can only have one base component. Added by JS. -->\n";
 
 /***/ }),
 /* 18 */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"user\">\n\t<h1>This is our 'User Dashboard Page' - Project Three</h1>\n</p>\n";
+module.exports = "<h2>Jobs Board</h2>\n<br />\n<div class=\"container signup\">\n  <form action=\"/users/:id/job\" method=\"POST\">\n<!--     <div>\n      <label for=\"company\">Company</label>\n      <input type=\"text\" name=\"company\" required=\"required\">\n    </div>\n    <br />\n\n    <div>\n      <label for=\"jobTitle\">Job Title</label>\n      <input type=\"text\" name=\"JobTitle\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" name=\"email\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"phone\">Phone</label>\n      <input type=\"text\" name=\"phone\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"website\">Website</label>\n      <input type=\"url\" name=\"website\">\n    </div>\n\n    <br />\n    <label for=\"phone\">Phone</label>\n      <input type=\"text\" name=\"phone\">\n    </div>\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n -->\n\n<div class=\"form-group row\">\n  <label for=\"example-text-input\" class=\"col-2 col-form-label\">Company</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"text\" value=\"Company\" id=\"example-text-input\" required=\"required\">\n  </div>\n  <br />\n</div>\n<div class=\"form-group row\">\n  <label for=\"example-search-input\" class=\"col-2 col-form-label\">Job Title</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"text\" value=\"Job Title\" id=\"example-search-input\" required=\"required\">\n  </div>\n  <br />\n</div>\n<div class=\"form-group row\">\n  <label for=\"example-email-input\" class=\"col-2 col-form-label\">Phone</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"tel\" value=\"555-555-5555\" id=\"example-email-input\">\n  </div>\n  <br />\n</div>\n<div class=\"form-group row\">\n  <label for=\"example-email-input\" class=\"col-2 col-form-label\">Email</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"email\" value=\"LedgR@example.com\" id=\"example-email-input\">\n  </div>\n  <br />\n</div>\n<div class=\"form-group row\">\n  <label for=\"example-url-input\" class=\"col-2 col-form-label\">Website</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"url\" value=\"https://www.LedgR.com\" id=\"example-url-input\">\n  </div>\n  <br />\n</div>\n\n<!-- <form class=\"form-inline\"> -->\n  <label class=\"mr-sm-2\" for=\"inlineFormCustomSelect\">Applied</label>\n  <select class=\"custom-select mb-2 mr-sm-2 mb-sm-0\" id=\"inlineFormCustomSelect\">\n    <option selected>Choose...</option>\n    <option value=\"1\">Yes</option>\n    <option value=\"2\">No</option>\n  </select>\n\n  <label class=\"custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0\">\n    <!-- <input type=\"checkbox\" class=\"custom-control-input\"> -->\n    <!-- <span class=\"custom-control-indicator\"></span> -->\n    <!-- <span class=\"custom-control-description\">Remember my preference</span> -->\n  </label>\n\n  <!-- <button type=\"submit\" class=\"btn btn-primary\">Submit</button> -->\n<!-- </form> -->\n<div class=\"form-group row\">\n  <label for=\"example-datetime-local-input\" class=\"col-2 col-form-label\">Date and time</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"datetime-local\" value=\"2011-08-19T13:45:00\" id=\"example-datetime-local-input\">\n  </div>\n</div>\n<br />\n\n<div class=\"form-group row\">\n  <label for=\"example-datetime-local-input\" class=\"col-2 col-form-label\">Created At</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"date\"  id=\"example-datetime-local-input\">\n  </div>\n</div>\n<br />\n\n    <input class=\"form-control\" type=\"submit\" value=\"Submit\" id=\"example-color-input\">\n  </div>\n</div>\n\n<notes>Notes Component</notes>\n\n\n\n";
 
 /***/ }),
 /* 19 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container loginPage\">\n  <form action=\"/user\" method=\"GET\">\n    <div class=\"header\">\n      <h2>User Login!</h2>\n    </div>\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" placeholder=\"Enter Email\" name=\"email\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"password\" placeholder=\"Enter Password\" name=\"password\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <button type=\"submit\">Login</button>\n      <input type=\"checkbox\" checked=\"checked\"> Remember me\n    </div>\n    </div>\n  </form>\n</div>\n";
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Sign Up</h2>\n<br />\n<div class=\"container signup\">\n  <form action=\"/users\" method=\"post\">\n    <div>\n      <label for=\"firstName\">First name</label>\n      <input type=\"text\" name=\"firstName\" required=\"required\">\n    </div>\n    <br />\n\n    <div>\n      <label for=\"lastName\">Last name</label>\n      <input type=\"text\" name=\"lastName\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" name=\"email\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"text\" name=\"password\" required=\"required\">\n    </div>\n\n    <br />\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n";
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+module.exports = "<p class=\"user\">\n\t<h1>This is our 'User Dashboard Page' - Project Three</h1>\n</p>\n";
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(5);
 __webpack_require__(6);
-__webpack_require__(0);
 __webpack_require__(7);
-__webpack_require__(1);
+__webpack_require__(0);
 __webpack_require__(8);
-__webpack_require__(2);
+__webpack_require__(1);
 __webpack_require__(9);
-__webpack_require__(3);
+__webpack_require__(2);
 __webpack_require__(10);
-module.exports = __webpack_require__(4);
+__webpack_require__(3);
+__webpack_require__(11);
+__webpack_require__(4);
+__webpack_require__(12);
+module.exports = __webpack_require__(5);
 
 
 /***/ })
