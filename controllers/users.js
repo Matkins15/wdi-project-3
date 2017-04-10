@@ -1,9 +1,9 @@
-var express = require('express')
-var router = express.Router()
-var bodyParser = require('body-parser')
-var methodOverride = require('method-override')
-var User = require('../models/schema.js');
-// var Jobs = require('../models/schema')
+var express = require('express');
+var router = express.Router({mergeParams: true});
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+var User = require('../models/user.js');
+var Jobs = require('../models/job.js');
 // var Notes = require('../models/schema');
 
 //GET '/'
@@ -67,6 +67,7 @@ router.post('/:userId/job', function createJobAction(req, res) {
 	console.log('### User.Job post route ###');
 	User.findById(req.params.userId)
 		.exec(function(err, user) {
+			console.log(user);
 			user.jobs.push(new Jobs(req.body));
 				console.log("sent to add");
 			user.save(function(err){
