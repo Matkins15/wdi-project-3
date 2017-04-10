@@ -177,6 +177,9 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 	}).state('login', {
 		url: '/login',
 		template: '<login></login>'
+	}).state('user', {
+		url: '/user',
+		template: '<user></user>'
 	});
 
 	// This is saying that if the urlRouterProvider is not working, use '/'.
@@ -38396,7 +38399,7 @@ module.exports = "<h2>Sign Up</h2>\n<br />\n<div class=\"container signup\">\n  
 /* 24 */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"user\">\n\t<h1>This is our 'User Dashboard Page' - Project Three</h1>\n</p>\n";
+module.exports = "<p class=\"user\">\n\t<h1>This is our 'User Dashboard Page' - Project Three</h1>\n\t<!-- Added user email call  -->\n\t<h1> {{ user.email }}</h1>\n</p>\n";
 
 /***/ }),
 /* 25 */
