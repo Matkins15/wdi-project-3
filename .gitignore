@@ -31,5 +31,7 @@ npm-debug.log
 
 .DS_Store
 
-.env
+
 app.bundle.js
+
+.env
