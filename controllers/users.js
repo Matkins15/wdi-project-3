@@ -115,27 +115,19 @@ router.post('/:userId/jobs/:id/note', function createNoteAction(req, res) {
 //DELETE User.Jobs
 router.delete('/:userId/jobs/:id', function destroyJobAction(request, response) {
 	console.log('### DELETE JOB BY ID ###');
-		var userId = request.params.userId;
 
-		User.jobs.remove({_id: id}, function(error) {
-			if(error) response.json({message: 'Could not delete JOb because' + error});
+	var userId = request.params.userId;
+	var jobId = request.params.id;
 
+	User
+		.findByIdAndUpdate(userId, {
+			$pull: {
+				jobs: {_id: jobId}
+			}
+		})
+		.exec(function() {
 			response.json({message: 'Job successfully deleted'});
-
-		}).select('-__v');
-
-
-	// User.findById(request.params.userId)
-	// .exec(function(err, user){
-	// 	console.log('Found user by id');
-	// 	if(err) { return console.log(err); }
-
-	// 	var targetUser = user;
-	// 	var jobsArray = user.jobs;
-	// 	var targetJob = jobsArray.id(request.params.id);
-	// 	console.log('Got job by ID' + targetJob);
-	// 	response.json({ targetJob: targetJob });
-	// });
+		});
 
 });
 
