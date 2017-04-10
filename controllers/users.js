@@ -63,17 +63,17 @@ router.post('/', function createUserAction(request, response){
 
 
 //POST User.Jobs
-router.post('/:userId/job', function createJobAction(req, res) {
+router.post('/:userId/job', function createJobAction(request, response) {
 	console.log('### User.Job post route ###');
-	User.findById(req.params.userId)
+	User.findById(request.params.userId)
 		.exec(function(err, user) {
 			console.log(user);
-			user.jobs.push(new Jobs(req.body));
+			user.jobs.push(new Jobs(request.body));
 				console.log("sent to add");
 			user.save(function(err){
-				if (err) console.log(err);
+				if (err) response.json({ message: 'Could not create job' + error});
 
-				response.json({ jobs: jobs });
+				response.json({ user: user });
 			});
 		});
 
