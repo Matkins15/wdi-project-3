@@ -22,9 +22,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 
 const usersController = require('./controllers/users.js');
-app.use('/user', usersController);
+app.use('/users', usersController);
 
 
 app.listen(process.env.PORT || 3000, function(){
-  console.log("⚡⚡ App listening succesfully ⚡⚡")
+  console.log("⚡⚡  App listening succesfully ⚡⚡")
 });

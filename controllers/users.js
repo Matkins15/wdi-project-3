@@ -1,9 +1,9 @@
-var express = require('express')
-var router = express.Router()
-var bodyParser = require('body-parser')
-var methodOverride = require('method-override')
-var User = require('../models/schema.js');
-// var Jobs = require('../models/schema')
+var express = require('express');
+var router = express.Router({mergeParams: true});
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+var User = require('../models/user.js');
+var Jobs = require('../models/job.js');
 // var Notes = require('../models/schema');
 
 //GET '/'
@@ -15,7 +15,7 @@ router.get('/', function homeAction(request, response){
 // router.get('/')
 
 //GET User.Id
-router.get('/:id', function userAction(req, res){
+router.get('/:id', function userAction(request, response){
 	console.log('### User get route ###');
 	var id = request.params.id;
 
@@ -27,17 +27,20 @@ router.get('/:id', function userAction(req, res){
 });
 
 //GET User.Jobs.byId
-router.get('/:userId/jobs/:id', function jobAction(req, res){
+router.get('/:userId/jobs/:id', function jobAction(request, response){
 	console.log('### JOB BY ID ###');
-	User.findById(req.params.userId)
+		var userId = request.params.userId;
+
+	User.findById(request.params.userId)
 	.exec(function(err, user){
+		console.log('Found user by id');
 		if(err) { return console.log(err); }
 
 		var targetUser = user;
 		var jobsArray = user.jobs;
-		var targetJob = jobsArray.id(req.params.id);
-
-		response.json({targetJob: targetJob});
+		var targetJob = jobsArray.id(request.params.id);
+		console.log('Got job by ID' + targetJob);
+		response.json({ targetJob: targetJob });
 	});
 
 });
@@ -63,23 +66,24 @@ router.post('/', function createUserAction(request, response){
 
 
 //POST User.Jobs
-router.post('/:userId/job', function createJobAction(req, res) {
+router.post('/:userId/jobs', function createJobAction(request, response) {
 	console.log('### User.Job post route ###');
-	User.findById(req.params.userId)
+	User.findById(request.params.userId)
 		.exec(function(err, user) {
-			user.jobs.push(new Jobs(req.body));
+			console.log(user);
+			user.jobs.push(new Jobs(request.body));
 				console.log("sent to add");
 			user.save(function(err){
-				if (err) console.log(err);
+				if (err) response.json({ message: 'Could not create job' + error});
 
-				response.json({ jobs: jobs });
+				response.json({ user: user });
 			});
 		});
 
 });
 
 //POST User.Jobs.Notes
-router.post('/:userId/job/:id/note', function createNoteAction(req, res) {
+router.post('/:userId/jobs/:id/note', function createNoteAction(req, res) {
 	console.log('### User.Job.Note ###');
 	User.findById(req.params.userId)
 		.exec(function(err, user) {
