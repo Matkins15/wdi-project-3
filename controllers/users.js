@@ -7,12 +7,18 @@ var Jobs = require('../models/job.js');
 // var Notes = require('../models/schema');
 
 //GET '/'
-router.get('/', function homeAction(request, response){
+// router.get('/', function homeAction(request, response){
 
+// });
+
+//GET Users
+router.get('/', function allUsers(request, response) {
+	User.find(function(error, users) {
+		if(error) response.json({message: 'Could not find any users'});
+
+		response.json({users: users});
+	}).select('-__v');
 });
-
-//GET User Dashboard
-// router.get('/')
 
 //GET User.Id
 router.get('/:id', function userAction(request, response){
@@ -107,7 +113,31 @@ router.post('/:userId/jobs/:id/note', function createNoteAction(req, res) {
 
 
 //DELETE User.Jobs
+router.delete('/:userId/jobs/:id', function destroyJobAction(request, response) {
+	console.log('### DELETE JOB BY ID ###');
+		var userId = request.params.userId;
 
+		User.jobs.remove({_id: id}, function(error) {
+			if(error) response.json({message: 'Could not delete JOb because' + error});
+
+			response.json({message: 'Job successfully deleted'});
+
+		}).select('-__v');
+
+
+	// User.findById(request.params.userId)
+	// .exec(function(err, user){
+	// 	console.log('Found user by id');
+	// 	if(err) { return console.log(err); }
+
+	// 	var targetUser = user;
+	// 	var jobsArray = user.jobs;
+	// 	var targetJob = jobsArray.id(request.params.id);
+	// 	console.log('Got job by ID' + targetJob);
+	// 	response.json({ targetJob: targetJob });
+	// });
+
+});
 
 //DELETE User.Jobs.Notes
 

@@ -34,9 +34,12 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 		.state('newUser', {
 			url: '/newUser',
 			template: '<new-user></new-user>'
+		})
+
+		.state('userShow', {
+			url: '/:userId',
+			template: '<user-show></user-show>'
 		});
-
-
 
 // This is saying that if the urlRouterProvider is not working, use '/'.
 	$urlRouterProvider.otherwise('/');
