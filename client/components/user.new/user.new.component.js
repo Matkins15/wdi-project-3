@@ -1,4 +1,4 @@
-const controller = require('./users.new.controller.js');
+const controller = require('./user.new.controller.js');
 const template = require('./user.new.html');
 
 const component = {
@@ -7,5 +7,5 @@ const component = {
 };
 
 angular
-	.module('users')
+	.module('projectThree')
 	.component('usersNew', component);

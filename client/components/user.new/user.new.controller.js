@@ -5,7 +5,7 @@ function UsersNewController($stateParams, UsersService) {
 
 	vm.addUser = addUser;
 	vm.newUser = {};
-
+	console.log('page loaded contoller');
 	function addUser(newUser){
 		console.log(newUser);
 		UsersService

@@ -12,10 +12,11 @@ function UsersService($http) {
 
 	// Load current user
 	function loadCurrent(id) {
-		return $http.get('/user/' + id);
+		return $http.get('/users/' + id);
 	}
 
 	function addUser(newUser) {
-		return $http.post('/user', newUser);
+		console.log('we are in the services');
+		return $http.post('/users', newUser);
 	}
 }

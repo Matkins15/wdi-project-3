@@ -9,7 +9,7 @@ angular.module('projectThree', ['ui.router'])
 // uiRouter setup with $state param dependencies - JS
 uiRouterSetup.$inject = ['$stateProvider', '$urlRouterProvider'];
 function uiRouterSetup($stateProvider, $urlRouterProvider) {
-
+ 
 	$stateProvider
 		.state('home', {
 			url: '/home',
