@@ -1,33 +1,5 @@
 var mongoose = require('mongoose');
 var UserSchema = mongoose.Schema({
-
-  var Schema = mongoose.Schema;
-
-const NotesSchema = mongoose.Schema({
-	notes: {
-		type: String,
-		required: true
-		},
-	created_at: Date
-
-});
-
-const JobsSchema = mongoose.Schema({
-	company: {
-		type: String,
-		required: true
-		},
-	job_title: String,
-	phone: String,
-	email: String,
-	website: String,
-	applied: Boolean,
-	created_at: Date,
-	notes: [NotesSchema]
-});
-
-const UserSchema = mongoose.Schema({
-
 	email: {
 		type: String,
 		unique: true,
