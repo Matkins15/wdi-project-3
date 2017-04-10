@@ -142,13 +142,7 @@ module.exports = SignUpController;
 /* 6 */
 /***/ (function(module, exports) {
 
-UserController.$inject = [];
-
-function UserController() {
-	const vm = this;
-}
-
-module.exports = UserController;
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/Matkins/wdi-project-3/client/components/user/user.controller.js'");
 
 /***/ }),
 /* 7 */
@@ -273,17 +267,9 @@ angular.module('projectThree').component('signup', component);
 
 /***/ }),
 /* 14 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-const controller = __webpack_require__(6);
-const template = __webpack_require__(24);
-
-const component = {
-	contoller: controller,
-	template: template
-};
-
-angular.module('projectThree').component('user', component);
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/Matkins/wdi-project-3/client/components/user/user.component.js'");
 
 /***/ }),
 /* 15 */
@@ -38396,12 +38382,7 @@ module.exports = "<div class=\"form-group\">\n  <label for=\"comment\">Note:</la
 module.exports = "<h2>Sign Up</h2>\n<br />\n<div class=\"container signup\">\n  <form action=\"/users\" method=\"post\">\n    <div>\n      <label for=\"firstName\">First name</label>\n      <input type=\"text\" name=\"firstName\" required=\"required\">\n    </div>\n    <br />\n\n    <div>\n      <label for=\"lastName\">Last name</label>\n      <input type=\"text\" name=\"lastName\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" name=\"email\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"text\" name=\"password\" required=\"required\">\n    </div>\n\n    <br />\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n";
 
 /***/ }),
-/* 24 */
-/***/ (function(module, exports) {
-
-module.exports = "<p class=\"user\">\n\t<h1>This is our 'User Dashboard Page' - Project Three</h1>\n\t<!-- Added user email call  -->\n\t<h1> {{ user.email }}</h1>\n</p>\n";
-
-/***/ }),
+/* 24 */,
 /* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 

@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+var Schema = require('../db/schema');
+var mongoose = require('mongoose');
 
 
 const NotesSchema = mongoose.Schema({
@@ -20,3 +21,4 @@ NotesSchema.pre('save', function(next) {
 });
 
 module.exports = mongoose.model('Notes', NotesSchema);
+
