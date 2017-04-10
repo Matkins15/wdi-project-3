@@ -15,7 +15,7 @@ router.get('/', function homeAction(request, response){
 // router.get('/')
 
 //GET User.Id
-router.get('/:id', function userAction(req, res){
+router.get('/:id', function userAction(request, response){
 	console.log('### User get route ###');
 	var id = request.params.id;
 
@@ -27,15 +27,16 @@ router.get('/:id', function userAction(req, res){
 });
 
 //GET User.Jobs.byId
-router.get('/:userId/jobs/:id', function jobAction(req, res){
+router.get('/:userId/jobs/:id', function jobAction(request, response){
 	console.log('### JOB BY ID ###');
-	User.findById(req.params.userId)
+
+	User.findById(request.params.userId)
 	.exec(function(err, user){
 		if(err) { return console.log(err); }
 
 		var targetUser = user;
 		var jobsArray = user.jobs;
-		var targetJob = jobsArray.id(req.params.id);
+		var targetJob = jobsArray.id(request.params.id);
 
 		response.json({targetJob: targetJob});
 	});
