@@ -2,9 +2,9 @@ var express = require('express')
 var router = express.Router()
 var bodyParser = require('body-parser')
 var methodOverride = require('method-override')
-var User = require('../models/schema')
-var Jobs = require('../models/schema')
-var Notes = require('../models/schema');
+var User = require('../models/schema.js');
+// var Jobs = require('../models/schema')
+// var Notes = require('../models/schema');
 
 //GET '/'
 router.get('/', function homeAction(request, response){
@@ -43,10 +43,16 @@ router.get('/:userId/jobs/:id', function jobAction(req, res){
 });
 
 //POST User
-router.post('/', function createUserAction(req, res){
+router.post('/', function createUserAction(request, response){
 	console.log('### User Post Route ###');
 
 	var user = new User(request.body);
+
+
+	// ({
+	// 	email: request.body.email,
+	// 	password: request.body.password
+	// });
 
 	user.save(function(error){
 		if(error) response.json({ message: 'Could not create user' + error});
