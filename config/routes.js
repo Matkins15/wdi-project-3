@@ -3,8 +3,14 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	methodOverride = require('method-override');
 
-// var job board controller = require('../controllers/###');
+var  usersController = require('../controllers/users.js');
 
+router.route('/user')
+	.get(usersController.getAll)
+	.post(usersController.createUserAction);
+
+// router.route('/users/:id')
+// 	.get(usersController.)
 
 
 
