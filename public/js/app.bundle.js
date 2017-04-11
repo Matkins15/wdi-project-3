@@ -179,13 +179,26 @@ module.exports = UsersNewController;
 /* 7 */
 /***/ (function(module, exports) {
 
-UserController.$inject = [];
+UserController.$inject = ['$stateParams', 'UsersService'];
 
-function UserController() {
+function UsersShowController($stateParams, UsersService) {
 	const vm = this;
+
+	vm.current = {};
+
+	activate();
+	function activate() {}
+
+	function loadCurrentUser() {
+		console.log($stateParams);
+		//make sure when the route loads you make a reference to .userId in the new controller?
+		UsersService.load($stateParams.userId).then(function resolve(response) {
+			vm.current = response.data.user;
+		});
+	}
 }
 
-module.exports = UserController;
+module.exports = UsersShowController;
 
 /***/ }),
 /* 8 */
@@ -352,6 +365,7 @@ function UsersService($http) {
 
 	self.loadCurrent = loadCurrent;
 	self.addUser = addUser;
+	self.addJob = addJob;
 
 	// Load current user
 	function loadCurrent(id) {
@@ -361,6 +375,11 @@ function UsersService($http) {
 	function addUser(newUser) {
 		console.log('we are in the services');
 		return $http.post('/users', newUser);
+	}
+
+	function addJob(id) {
+		console.log('we are in services');
+		return $http.post('/users/' + id + '/jobs');
 	}
 }
 
