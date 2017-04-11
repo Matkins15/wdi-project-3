@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 37);
+/******/ 	return __webpack_require__(__webpack_require__.s = 36);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -128,7 +128,7 @@ module.exports = JobsNewController;
 /* 4 */
 /***/ (function(module, exports) {
 
-UserController.$inject = ['$stateParams', 'UsersService'];
+JobsShowController.$inject = ['$stateParams', 'UsersService'];
 
 function JobsShowController($stateParams, UsersService) {
 	const vm = this;
@@ -204,31 +204,9 @@ module.exports = SignUpController;
 /* 8 */
 /***/ (function(module, exports) {
 
-UsersNewController.$inject = ['$stateParams', 'UsersService'];
+UserShowController.$inject = ['$stateParams', 'UsersService'];
 
-function UsersNewController($stateParams, UsersService) {
-	const vm = this;
-
-	vm.addUser = addUser;
-	vm.newUser = {};
-	console.log('page loaded contoller');
-	function addUser(newUser) {
-		console.log(newUser);
-		UsersService.addUser(newUser).then(function () {
-			vm.newUser = {};
-		});
-	}
-}
-
-module.exports = UsersNewController;
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-UserController.$inject = ['$stateParams', 'UsersService'];
-
-function UsersShowController($stateParams, UsersService) {
+function UserShowController($stateParams, UsersService) {
 	const vm = this;
 
 	vm.current = {};
@@ -245,10 +223,10 @@ function UsersShowController($stateParams, UsersService) {
 	}
 }
 
-module.exports = UsersShowController;
+module.exports = UserShowController;
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const angular = __webpack_require__(26);
@@ -287,6 +265,17 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 		// HEY, /:userId/jobs?
 		url: '/:userId/jobs',
 		template: '<jobs-show></jobs-show>'
+		// template: '<job-new></job-new>'
+	})
+
+	// .state('jobsShow', {
+	// 	url: '/:userId/show',
+	// 	template: '<job-show></job-show>'
+	// })
+
+	.state('jobsEdit', {
+		url: '/:userId/jobs/:jobId',
+		template: '<job-edit></job-edit>'
 	});
 
 	// This is saying that if the urlRouterProvider is not working, use '/'.
@@ -294,7 +283,7 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 }
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(0);
@@ -309,7 +298,7 @@ const component = {
 angular.module('projectThree').component('about', component);
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(1);
@@ -323,7 +312,7 @@ const component = {
 angular.module('projectThree').component('home', component);
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(2);
@@ -337,7 +326,7 @@ const component = {
 angular.module('projectThree').component('jobsEdit', component);
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(3);
@@ -351,7 +340,7 @@ const component = {
 angular.module('projectThree').component('jobsNew', component);
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(4);
@@ -365,7 +354,7 @@ const component = {
 angular.module('projectThree').component('jobsShow', component);
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports) {
 
 // const controller = require('./jobs.controller.js');
@@ -381,7 +370,7 @@ angular.module('projectThree').component('jobsShow', component);
 // 	.component('jobs', component);
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports) {
 
 // JobsController.$inject = [];
@@ -393,7 +382,7 @@ angular.module('projectThree').component('jobsShow', component);
 // module.exports = JobsController;
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(5);
@@ -407,7 +396,7 @@ const component = {
 angular.module('projectThree').component('login', component);
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(6);
@@ -421,7 +410,7 @@ const component = {
 angular.module('projectThree').component('note', component);
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(7);
@@ -435,25 +424,52 @@ const component = {
 angular.module('projectThree').component('signup', component);
 
 /***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+// const controller = require('./user.new.controller.js');
+// const template = require('./user.new.html');
+//
+// const component = {
+// 	controller: controller,
+// 	template: template
+// };
+//
+// angular
+// 	.module('projectThree')
+// 	.component('usersNew', component);
+
+/***/ }),
 /* 21 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-const controller = __webpack_require__(8);
-const template = __webpack_require__(35);
-
-const component = {
-	controller: controller,
-	template: template
-};
-
-angular.module('projectThree').component('usersNew', component);
+// UsersNewController.$inject = ['$stateParams', 'UsersService'];
+//
+// function UsersNewController($stateParams, UsersService) {
+// 	const vm = this;
+//
+// 	vm.addUser = addUser;
+// 	vm.newUser = {};
+// 	console.log('page loaded contoller');
+// 	function addUser(newUser){
+// 		console.log(newUser);
+// 		UsersService
+// 			.addUser(newUser)
+// 			.then(function() {
+// 				vm.newUser = {};
+// 			});
+// 	}
+// }
+//
+//
+// module.exports = UsersNewController;
 
 /***/ }),
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const controller = __webpack_require__(9);
-const template = __webpack_require__(36);
+const controller = __webpack_require__(8);
+const template = __webpack_require__(35);
 
 const component = {
 	contoller: controller,
@@ -38602,19 +38618,19 @@ module.exports = "<h2>Jobs Board</h2>\n<br />\n<div class=\"container signup\">\
 /* 31 */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Show Job</h1>\n";
+module.exports = "<h1>Jobs Show Board</h1>\n\n<div ng-controller=\"JobsShowController as job\">\n\n<!-- 1. Not sure how to call this for sure but added it anyway.  -->\n<!-- 2. Added a filter to sort by descending order. -->\n\t<div ng-repeat=\"job in projectThree.user.jobs.length | orderBy: '-job'\">\n\t\t <input class=\"form-control btn-warning\" type=\"submit\" value=\"Edit\" id=\"example-color-input\">\n\t\t <input class=\"form-control btn-danger\" type=\"submit\" value=\"Delete\" id=\"example-color-input\">\n\t\t <input class=\"form-control btn-success\" type=\"submit\" value=\"Submit\" id=\"example-color-input\">\n\n<!-- 3. A little iffy on this ng-if declaration, our schema doesn't have a job obj.-->\n\t\t<note ng-if=\"note.jobs\">Your Notes</note>\n\n\t<div>\n\n</div>\n";
 
 /***/ }),
 /* 32 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container loginPage\">\n  <form action=\"/users\" method=\"GET\">\n    <div class=\"header\">\n      <h2>User Login!</h2>\n    </div>\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" placeholder=\"Enter Email\" name=\"email\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"password\" placeholder=\"Enter Password\" name=\"password\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <button type=\"submit\">Login</button>\n      <input type=\"checkbox\" checked=\"checked\"> Remember me\n    </div>\n    </div>\n  </form>\n</div>\n";
+module.exports = "<div class=\"container loginPage\">\n  <form action=\"/users\" method=\"GET\">\n    <div class=\"header\">\n      <h2>User Login!</h2>\n    </div>\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" placeholder=\"Enter Email\" name=\"email\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"password\" placeholder=\"Enter Password\" name=\"password\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <button type=\"submit\">Login</button>\n      <input type=\"checkbox\" checked=\"checked\">\n    </div>\n  </form>\n</div>\n";
 
 /***/ }),
 /* 33 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"form-group\">\n  <label for=\"comment\">Note:</label>\n  <textarea class=\"form-control\" rows=\"5\" id=\"comment\"></textarea>\n  <br />\n  <button class=\"btn btn-success\" type=\"submit\" value=\"Save Note!\">Save Note!</button>\n</div>\n\n";
+module.exports = "<div class=\"form-group\">\n  <label for=\"comment\">Note:</label>\n  <textarea class=\"form-control\" rows=\"5\" id=\"comment\"></textarea>\n  <br />\n  <button class=\"btn btn-success\" type=\"submit\" value=\"Save Note!\">Save Note!</button>\n  <button class=\"form-control btn-warning\" type=\"submit\" value=\"Edit\" id=\"example-color-input\"></button>\n  <button class=\"form-control btn-danger\" type=\"submit\" value=\"Delete\" id=\"example-color-input\"></button>\n</div>\n\n";
 
 /***/ }),
 /* 34 */
@@ -38626,41 +38642,35 @@ module.exports = "<h2>Sign Up</h2>\n<br />\n\n<div class=\"container signup\">\n
 /* 35 */
 /***/ (function(module, exports) {
 
-module.exports = "<form ng-submit=\"$ctrl.addUser($ctrl.newUser)\">\n<input type=\"text\" required=\"required\" placeholder=\"Add Email\" ng-model=\"$ctrl.newUser.email\">\n<input type=\"text\" required=\"required\" placeholder=\"Add Password\" ng-model=\"$ctrl.newUser.password\">\n\n<input type=\"submit\" value=\"Add New User\">\n</form>\n";
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports) {
-
 module.exports = "<p class=\"user\">\n\t<h1>This is our 'User Dashboard Page' - Project Three</h1>\n\t<!-- Added user email call  -->\n\t<h1> {{ $ctrl.user.email }}</h1>\n</p>\n";
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(9);
 __webpack_require__(10);
-__webpack_require__(11);
 __webpack_require__(0);
-__webpack_require__(12);
+__webpack_require__(11);
 __webpack_require__(1);
-__webpack_require__(13);
+__webpack_require__(12);
 __webpack_require__(2);
-__webpack_require__(14);
+__webpack_require__(13);
 __webpack_require__(3);
-__webpack_require__(15);
+__webpack_require__(14);
 __webpack_require__(4);
+__webpack_require__(15);
 __webpack_require__(16);
 __webpack_require__(17);
-__webpack_require__(18);
 __webpack_require__(5);
-__webpack_require__(19);
+__webpack_require__(18);
 __webpack_require__(6);
-__webpack_require__(20);
+__webpack_require__(19);
 __webpack_require__(7);
+__webpack_require__(20);
 __webpack_require__(21);
-__webpack_require__(8);
 __webpack_require__(22);
-__webpack_require__(9);
+__webpack_require__(8);
 module.exports = __webpack_require__(23);
 
 
