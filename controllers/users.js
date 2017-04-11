@@ -148,6 +148,12 @@ router.patch('/:userId/jobs/:id', function updateAction(request, response) {
 			var thisJob = user.jobs.id(id);
 			console.log(thisJob);
 			thisJob.company = request.body.company;
+			thisJob.job_title = request.body.job_title;
+			thisJob.phone = request.body.phone;
+			thisJob.email = request.body.email;
+			thisJob.website = request.body.website;
+			thisJob.applied = request.body.applied;
+			thisJob.created_at = request.body.created_at;
 
 			user.save();
 			response.json({message:'Job updated', user: user });
