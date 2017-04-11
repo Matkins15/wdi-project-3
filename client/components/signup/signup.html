@@ -1,36 +1,39 @@
 
-<div class="container sign-up">
+<div class="sign-up">
+  <div id="sign-up-container">
+    <div id="sign-up-card">
+      <form ng-submit="$ctrl.addNewUser()" id="newUser">
+        <div class="header">
+          <h2>SignUp!</h2>
+        </div>
+        <hr>
+        <div>
+          <label for="firstName">First name</label>
+          <input type="text" ng-model="$ctrl.newUser.firstName" name="firstName" required="required">
+        </div>
 
-  <form ng-submit="$ctrl.addNewUser()" id="newUser">
-    <div class="header">
-      <h2>SignUp!</h2>
-    </div>
-    <hr>
-    <div>
-      <label for="firstName">First name</label>
-      <input type="text" ng-model="$ctrl.newUser.firstName" name="firstName" required="required">
-    </div>
+        <div>
+          <label for="lastName">Last name</label>
+          <input type="text" name="lastName" ng-model="$ctrl.newUser.lastName" required="required">
+        </div>
 
-    <div>
-      <label for="lastName">Last name</label>
-      <input type="text" name="lastName" ng-model="$ctrl.newUser.lastName" required="required">
-    </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" name="email" ng-model="$ctrl.newUser.email" required="required">
+        </div>
 
-    <div>
-      <label for="email">Email</label>
-      <input type="email" name="email" ng-model="$ctrl.newUser.email" required="required">
-    </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="text" name="password" ng-model="$ctrl.newUser.password" required="required">
+        </div>
 
-    <div>
-      <label for="password">Password</label>
-      <input type="text" name="password" ng-model="$ctrl.newUser.password" required="required">
-    </div>
+        <div>
+          <button class="login-button" type="submit">Sign Up!</button>
+          <!-- <input type="checkbox" checked="checked"> -->
+        </div>
 
-    <div>
-      <button class="login-button" type="submit">Sign Up!</button>
-      <!-- <input type="checkbox" checked="checked"> -->
+        <!-- <input class="signup-button" type="submit" value="Submit"> -->
+      </form>
     </div>
-
-    <!-- <input class="signup-button" type="submit" value="Submit"> -->
-  </form>
+  </div>
 </div>
