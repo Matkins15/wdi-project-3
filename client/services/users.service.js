@@ -22,11 +22,11 @@ function UsersService($http) {
 		return $http.post('/users', newUser);
 	}
 
-	function addJob(newJob) {
+	function addJob(userId, newJob) {
 
 		//NEED TO FIND OUT ABOUT GETTING USERID FOR POST
 		console.log('we are in services');
-		return $http.post('/users/' + id + '/jobs')
+		return $http.post('/users/' + userId + '/jobs', newJob);
 	}
 
 	function loadCurrentJob(id) {

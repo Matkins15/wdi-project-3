@@ -80,13 +80,28 @@ router.post('/:userId/jobs', function createJobAction(request, response) {
 			user.jobs.push(new Jobs(request.body));
 				console.log("sent to add");
 			user.save(function(err){
-				if (err) response.json({ message: 'Could not create job' + error});
-
+				if (err) response.json({ message: 'Could not create job' + err});
+				console.log("after save");
 				response.json({ user: user });
 			});
 		});
 
 });
+// router.post('/:userId/jobs', function createJobAction(request, response) {
+// 	console.log('### User.Job post route ###');
+// 	User.findById(request.params.userId)
+// 		.exec(function(err, user) {
+// 			console.log(user);
+// 			user.jobs.push(new Jobs(request.body));
+// 				console.log("sent to add");
+// 			user.save(function(err){
+// 				if (err) response.json({ message: 'Could not create job' + error});
+
+// 				response.json({ user: user });
+// 			});
+// 		});
+
+// });
 
 //POST User.Jobs.Notes
 router.post('/:userId/jobs/:id/notes', function createNoteAction(request, response) {
