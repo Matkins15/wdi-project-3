@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var User = require('../models/user.js');
 var Jobs = require('../models/job.js');
-// var Notes = require('../models/schema');
+var Notes = require('../models/notes.js');
 
 //GET '/'
 // router.get('/', function homeAction(request, response){
@@ -89,18 +89,26 @@ router.post('/:userId/jobs', function createJobAction(request, response) {
 });
 
 //POST User.Jobs.Notes
-router.post('/:userId/jobs/:id/note', function createNoteAction(req, res) {
+router.post('/:userId/jobs/:id/notes', function createNoteAction(request, response) {
 	console.log('### User.Job.Note ###');
-	User.findById(req.params.userId)
+	var jobId =request.params.id;
+	User.findById(request.params.userId)
 		.exec(function(err, user) {
-			Jobs.findById(req.params.id)
+			console.log(user);
+			var targetUser = user;
+			var jobsArray = user.jobs;
+			console.log(jobsArray);
+			var targetJob = jobsArray.id(request.params.id);
+			console.log(targetJob);
+			Jobs.findById(request.params.id)
 				.exec(function(err, jobs) {
-					user.jobs.notes.push(new Notes(req.body));
+					console.log(targetJob);
+					user.jobs.push(new Notes(request.body));
 						console.log('### Note added to DB ###');
 					user.save(function(err) {
 						if (err) console.log(err);
 
-						response.json({ notes: notes });
+						response.json({ user: user });
 					});
 				});
 		});

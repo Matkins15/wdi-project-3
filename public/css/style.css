@@ -1,13 +1,33 @@
-html {
-
-
+.homeBackground {
+	height: 100vh;
 }
 
 body {
 	margin: 10px 50px 0px 50px;
 	text-align: center;
 /*	padding: 100px;*/
-
 }
 
+.home {
+	width: 100%;
+	text-align: center;
+	padding: 100px;
+}
 
+footer {
+  height: 100px;
+  background-color: #E3E4E8;
+  padding: 10px 0px 0px 0px;
+}
+
+.fa {
+	padding: 10px;
+}
+
+.fa-github:before {
+	font-size: 36px;
+}
+
+.fa-linkedin-square:before {
+	font-size: 36px;
+}
