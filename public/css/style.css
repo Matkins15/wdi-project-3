@@ -1,6 +1,5 @@
-html {
-
-
+.homeBackground {
+	height: 100vh;
 }
 
 body {
@@ -11,3 +10,20 @@ body {
 }
 
 
+footer {
+  height: 100px;
+  background-color: #E3E4E8;
+  padding: 10px 0px 0px 0px;
+}
+
+.fa {
+	padding: 10px;
+}
+
+.fa-github:before {
+	font-size: 36px;
+}
+
+.fa-linkedin-square:before {
+	font-size: 36px;
+}
