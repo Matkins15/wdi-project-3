@@ -12,7 +12,7 @@ certain detials, and deadlines not to overlook when applying or reapplying.
 * Mongo DB
 * Express
 * Angular JS
-* Node.js
+* Node
 * Github
 * Heroku
 * Postman
@@ -46,7 +46,7 @@ certain detials, and deadlines not to overlook when applying or reapplying.
 
 
 
-## Contributing Developers:
+### Contributing Developers:
 
 * [Joy Sutton](http://joysuttonportfolio.bitballoon.com/)
 * Matt Atkins
