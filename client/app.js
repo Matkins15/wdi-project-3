@@ -9,7 +9,7 @@ angular.module('projectThree', ['ui.router'])
 // uiRouter setup with $state param dependencies - JS
 uiRouterSetup.$inject = ['$stateProvider', '$urlRouterProvider'];
 function uiRouterSetup($stateProvider, $urlRouterProvider) {
- 
+
 	$stateProvider
 		.state('home', {
 			url: '/home',
@@ -39,7 +39,24 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 		.state('userShow', {
 			url: '/:userId',
 			template: '<user-show></user-show>'
+		})
+
+		.state('jobsNew', {
+			url: '/:userId/jobs',
+			template: '<job-new></job-new>'
+		})
+
+		.state('jobsShow', {
+			url: '/:userId/show',
+			template: '<job-show></job-show>'
+		})
+
+		.state('jobsEdit', {
+			url: '/:userId/jobs/:jobId',
+			template: '<job-edit></job-edit>'
 		});
+
+
 
 // This is saying that if the urlRouterProvider is not working, use '/'.
 	$urlRouterProvider.otherwise('/');
