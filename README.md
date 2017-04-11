@@ -1,11 +1,11 @@
 # LedgR
 
 When applying for jobs, **LedgR** keeps you organized! Using **LedgR** to store all your job leads, keeps you on top
-of all the past and present jobs that intrest you the most! Adding notes to your job leads will help maintain follow up dates, and
+of all the past and present jobs that intrest you the most! Adding notes to your job leads will help maintain follow up dates,
 certain detials, and deadlines not to overlook when applying or reapplying.
 **LedgR** keeps your eyes on the prize when pursuing your dream job that you want the most! Sign up today!
 
-# Technologies Used
+## Technologies Used
 
 * HTML & CSS
 * Mongoose
@@ -26,7 +26,7 @@ certain detials, and deadlines not to overlook when applying or reapplying.
 
 **Link to Project on** [Heroku](#)
 
-**Wire Frames**
+### Wireframes
 
 <br>
 
