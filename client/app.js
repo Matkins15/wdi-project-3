@@ -45,12 +45,24 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 			url: '/:userId/jobs',
 			template: '<jobs-new></jobs-new>'
 		})
-		
+
 		.state('jobsShow', {
 			// HEY, /:userId/jobs?
 			url: '/:userId/jobs',
 			template: '<jobs-show></jobs-show>'
+			// template: '<job-new></job-new>'
+		})
+
+		// .state('jobsShow', {
+		// 	url: '/:userId/show',
+		// 	template: '<job-show></job-show>'
+		// })
+
+		.state('jobsEdit', {
+			url: '/:userId/jobs/:jobId',
+			template: '<job-edit></job-edit>'
 		});
+
 
 // This is saying that if the urlRouterProvider is not working, use '/'.
 	$urlRouterProvider.otherwise('/');

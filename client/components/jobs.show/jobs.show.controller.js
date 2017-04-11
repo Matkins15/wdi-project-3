@@ -1,4 +1,4 @@
-UserController.$inject = ['$stateParams', 'UsersService'];
+JobsShowController.$inject = ['$stateParams', 'UsersService'];
 
 function JobsShowController($stateParams, UsersService) {
 	const vm = this;
