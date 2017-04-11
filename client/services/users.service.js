@@ -9,6 +9,7 @@ function UsersService($http) {
 
 	self.loadCurrent = loadCurrent;
 	self.addUser = addUser;
+	self.addJob = addJob;
 
 	// Load current user
 	function loadCurrent(id) {
@@ -18,5 +19,10 @@ function UsersService($http) {
 	function addUser(newUser) {
 		console.log('we are in the services');
 		return $http.post('/users', newUser);
+	}
+
+	function addJob(id) {
+		console.log('we are in services');
+		return $http.post('/users/' + id + '/jobs')
 	}
 }
