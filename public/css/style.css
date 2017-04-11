@@ -31,3 +31,7 @@ footer {
 .fa-linkedin-square:before {
 	font-size: 36px;
 }
+
+.btn {
+	margin: 5px;
+}
