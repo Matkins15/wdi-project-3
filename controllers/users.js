@@ -80,13 +80,28 @@ router.post('/:userId/jobs', function createJobAction(request, response) {
 			user.jobs.push(new Jobs(request.body));
 				console.log("sent to add");
 			user.save(function(err){
-				if (err) response.json({ message: 'Could not create job' + error});
-
+				if (err) response.json({ message: 'Could not create job' + err});
+				console.log("after save");
 				response.json({ user: user });
 			});
 		});
 
 });
+// router.post('/:userId/jobs', function createJobAction(request, response) {
+// 	console.log('### User.Job post route ###');
+// 	User.findById(request.params.userId)
+// 		.exec(function(err, user) {
+// 			console.log(user);
+// 			user.jobs.push(new Jobs(request.body));
+// 				console.log("sent to add");
+// 			user.save(function(err){
+// 				if (err) response.json({ message: 'Could not create job' + error});
+
+// 				response.json({ user: user });
+// 			});
+// 		});
+
+// });
 
 
 //POST User.Jobs.Notes
@@ -98,8 +113,21 @@ router.post('/:userId/jobs/:id/notes', function createNoteAction(request, respon
 			console.log(user);
 			var targetUser = user;
 			var jobsArray = user.jobs;
-			console.log(jobsArray);
+			// console.log(jobsArray);
 			var targetJob = jobsArray.id(request.params.id);
+			// console.log(targetJob);
+			Jobs.findById(request.params.id)
+				.exec(function(err, jobs) {
+					console.log(targetJob);
+					user.jobs.push(new Notes(request.body));
+						console.log('### Note added to DB ###');
+					user.save(function(err) {
+						if (err) console.log(err);
+
+						response.json({ user: user });
+					});
+				});
+
 			console.log(targetJob);
 			targetJob.notes.push(new Notes(request.body));
 				console.log('### Note added to DB ###');
@@ -111,7 +139,44 @@ router.post('/:userId/jobs/:id/notes', function createNoteAction(request, respon
 		});
 });
 
-//PATCH User.Jobs
+// PATCH User.Jobs
+//
+router.patch('/:userId/jobs/:id', function updateAction(request, response) {
+
+	var id = request.params.id;
+	var userId = request.params.userId;
+
+	//get target user
+	//within target user, get target job
+		//find by id job in question
+		//set job by req.body
+	//save user
+
+	User
+		.findById(userId)
+		.exec(function getTargetJob(error, user) {
+			var thisJob = user.jobs.id(id);
+			console.log(thisJob);
+			thisJob.company = request.body.company;
+			thisJob.job_title = request.body.job_title;
+			thisJob.phone = request.body.phone;
+			thisJob.email = request.body.email;
+			thisJob.website = request.body.website;
+			thisJob.applied = request.body.applied;
+			thisJob.created_at = request.body.created_at;
+
+			user.save();
+			response.json({message:'Job updated', user: user });
+		})
+		// Jobs.findById(request.params.id)
+		// .exec(function(error, result) {
+
+		// 	response.json({message:'Job updated', user: result });
+		// });
+
+	
+});
+
 
 
 //PATCH User.Jobs.Notes //FOR LATER, STRETCH GOAL
