@@ -18,6 +18,18 @@ Contributing Developers:
 
 ![ERD](http://i.imgur.com/tz4dNJq.png)
 
+<br>
+
+![wire-frame-1](http://i.imgur.com/GSYGuYi.jpg)
+
+<br>
+
+![wire-frame-2](http://i.imgur.com/OKeksOi.jpg)
+
+<br>
+
+![wire-frame-3](http://i.imgur.com/PHH0Bwh.jpg)
+
 
 
 
