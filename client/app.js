@@ -12,7 +12,7 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 
 	$stateProvider
 		.state('home', {
-			url: '/home',
+			url: '/',
 			template: '<home></home>'
 		})
 
