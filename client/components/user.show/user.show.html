@@ -1,5 +1,20 @@
+<div  ng-controller="$ctrl.loadCurrentUser as user">
 <p class="user">
 	<h1>This is our 'User Dashboard Page' - Project Three</h1>
 	<!-- Added user email call  -->
-	<h1> {{ $ctrl.user.email }}</h1>
+	<h1> {{ $ctrl.current.email }}</h1>
 </p>
+
+
+	<div ng-repeat="jobs in $ctrl.current.jobs">
+	{{ 2 + 2 }}
+
+		{{jobs.company}}
+
+		 <input class="form-control btn-warning" type="submit" value="Edit" id="example-color-input">
+		 <input class="form-control btn-danger" type="submit" value="Delete" id="example-color-input">
+		 <input class="form-control btn-success" type="submit" value="Submit" id="example-color-input">
+
+	</div>
+
+</div>

@@ -2,7 +2,7 @@ const controller = require('./user.show.controller.js');
 const template = require('./user.show.html');
 
 const component = {
-	contoller: controller,
+	controller: controller,
 	template: template
 };
 
