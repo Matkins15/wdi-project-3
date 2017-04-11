@@ -9,7 +9,6 @@ function SignUpController(UsersService, $state) {
 	function activate() {}
 
 	function addNewUser() {
-		debugger;
 		UsersService
 			.addUser(vm.newUser)
 			.then(function resolve(response) {
