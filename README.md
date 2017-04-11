@@ -5,7 +5,7 @@ of all the past and present jobs that intrest you the most! Adding notes to your
 certain detials, and deadlines not to overlook when applying or reapplying.
 **LedgR** keeps your eyes on the prize when pursuing your dream job that you want the most! Sign up today!
 
-#Technologies Used
+# Technologies Used
 
 * HTML & CSS
 * Mongoose
