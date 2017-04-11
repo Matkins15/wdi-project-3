@@ -241,7 +241,7 @@ uiRouterSetup.$inject = ['$stateProvider', '$urlRouterProvider'];
 function uiRouterSetup($stateProvider, $urlRouterProvider) {
 
 	$stateProvider.state('home', {
-		url: '/home',
+		url: '/',
 		template: '<home></home>'
 	}).state('about', {
 		url: '/about',
