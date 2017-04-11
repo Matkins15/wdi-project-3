@@ -38484,7 +38484,7 @@ module.exports = "<form ng-submit=\"$ctrl.addUser($ctrl.newUser)\">\n<input type
 /* 28 */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"user\">\n\t<h1>This is our 'User Dashboard Page' - Project Three</h1>\n\t<!-- Added user email call  -->\n\t<h1> {{ user.email }}</h1>\n</p>\n";
+module.exports = "<p class=\"user\">\n\t<h1>This is our 'User Dashboard Page' - Project Three</h1>\n\t<!-- Added user email call  -->\n\t<h1> {{ $ctrl.user.email }}</h1>\n</p>\n";
 
 /***/ }),
 /* 29 */
