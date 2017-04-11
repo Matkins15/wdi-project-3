@@ -47,7 +47,7 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 		})
 
 		.state('jobsShow', {
-			// HEY, /:userId/jobs?
+			// HEY, /:userId/jobs? MIGHT NOT NEED
 			url: '/:userId/jobs',
 			template: '<jobs-show></jobs-show>'
 			// template: '<job-new></job-new>'
@@ -57,6 +57,11 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 		// 	url: '/:userId/show',
 		// 	template: '<job-show></job-show>'
 		// })
+
+		.state('jobIdShow', {
+			url: '/:userId/jobs/:jobId',
+			template: '<job-id-show></job-id-show>'
+		})
 
 		.state('jobsEdit', {
 			url: '/:userId/jobs/:jobId',
