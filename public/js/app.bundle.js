@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 29);
+/******/ 	return __webpack_require__(__webpack_require__.s = 34);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -94,16 +94,51 @@ module.exports = HomeController;
 /* 2 */
 /***/ (function(module, exports) {
 
-// JobsController.$inject = [];
-//
-// function JobsController() {
-// 	const vm = this;
-// }
-//
-// module.exports = JobsController;
+JobsNewController.$inject = ['$stateParams', 'UsersService'];
+
+function JobsNewController($stateParams, UsersService) {
+	const vm = this;
+
+	vm.addJob = addJob;
+	vm.newJob = {};
+	console.log('page loaded contoller');
+	function addUser(newJob) {
+		console.log(newJob);
+		UsersService.addJob(newJob).then(function () {
+			vm.newJob = {};
+		});
+	}
+}
+
+module.exports = JobsNewController;
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+UserController.$inject = ['$stateParams', 'UsersService'];
+
+function JobsShowController($stateParams, UsersService) {
+	const vm = this;
+
+	vm.currentJob = {};
+
+	activate();
+	function activate() {}
+
+	function loadCurrentJob() {
+		console.log($stateParams);
+		//make sure when the route loads you make a reference to .userId in the new controller?
+		UsersService.loadCurrentJob($stateParams.id).then(function resolve(response) {
+			vm.currentJob = response.data.job;
+		});
+	}
+}
+
+module.exports = JobsShowController;
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports) {
 
 LoginController.$inject = [];
@@ -115,7 +150,7 @@ function LoginController() {
 module.exports = LoginController;
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 NoteController.$inject = [];
@@ -127,7 +162,7 @@ function NoteController() {
 module.exports = NoteController;
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 SignUpController.$inject = ['UsersService', '$state'];
@@ -154,7 +189,7 @@ function SignUpController(UsersService, $state) {
 module.exports = SignUpController;
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 UsersNewController.$inject = ['$stateParams', 'UsersService'];
@@ -176,7 +211,7 @@ function UsersNewController($stateParams, UsersService) {
 module.exports = UsersNewController;
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 UserController.$inject = ['$stateParams', 'UsersService'];
@@ -201,11 +236,11 @@ function UsersShowController($stateParams, UsersService) {
 module.exports = UsersShowController;
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const angular = __webpack_require__(20);
-__webpack_require__(18);
+const angular = __webpack_require__(24);
+__webpack_require__(22);
 
 angular.module('projectThree', ['ui.router']).config(uiRouterSetup);
 
@@ -247,11 +282,11 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 }
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(0);
-const template = __webpack_require__(21);
+const template = __webpack_require__(25);
 
 const component = {
   controller: controller,
@@ -262,11 +297,11 @@ const component = {
 angular.module('projectThree').component('about', component);
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(1);
-const template = __webpack_require__(22);
+const template = __webpack_require__(26);
 
 const component = {
 	contoller: controller,
@@ -276,7 +311,35 @@ const component = {
 angular.module('projectThree').component('home', component);
 
 /***/ }),
-/* 11 */
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const controller = __webpack_require__(2);
+const template = __webpack_require__(27);
+
+const component = {
+  controller: controller,
+  template: template
+};
+
+angular.module('projectThree').component('jobsNew', component);
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const controller = __webpack_require__(3);
+const template = __webpack_require__(28);
+
+const component = {
+  controller: controller,
+  template: template
+};
+
+angular.module('projectThree').component('jobsShow', component);
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports) {
 
 // const controller = require('./jobs.controller.js');
@@ -292,11 +355,23 @@ angular.module('projectThree').component('home', component);
 // 	.component('jobs', component);
 
 /***/ }),
-/* 12 */
+/* 15 */
+/***/ (function(module, exports) {
+
+// JobsController.$inject = [];
+//
+// function JobsController() {
+// 	const vm = this;
+// }
+//
+// module.exports = JobsController;
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const controller = __webpack_require__(3);
-const template = __webpack_require__(24);
+const controller = __webpack_require__(4);
+const template = __webpack_require__(29);
 
 const component = {
 	controller: controller,
@@ -306,11 +381,11 @@ const component = {
 angular.module('projectThree').component('login', component);
 
 /***/ }),
-/* 13 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const controller = __webpack_require__(4);
-const template = __webpack_require__(25);
+const controller = __webpack_require__(5);
+const template = __webpack_require__(30);
 
 const component = {
 	controller: controller,
@@ -320,11 +395,11 @@ const component = {
 angular.module('projectThree').component('note', component);
 
 /***/ }),
-/* 14 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const controller = __webpack_require__(5);
-const template = __webpack_require__(26);
+const controller = __webpack_require__(6);
+const template = __webpack_require__(31);
 
 const component = {
   controller: controller,
@@ -334,11 +409,11 @@ const component = {
 angular.module('projectThree').component('signup', component);
 
 /***/ }),
-/* 15 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const controller = __webpack_require__(6);
-const template = __webpack_require__(27);
+const controller = __webpack_require__(7);
+const template = __webpack_require__(32);
 
 const component = {
 	controller: controller,
@@ -348,11 +423,11 @@ const component = {
 angular.module('projectThree').component('usersNew', component);
 
 /***/ }),
-/* 16 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const controller = __webpack_require__(7);
-const template = __webpack_require__(28);
+const controller = __webpack_require__(8);
+const template = __webpack_require__(33);
 
 const component = {
 	contoller: controller,
@@ -362,7 +437,7 @@ const component = {
 angular.module('projectThree').component('userShow', component);
 
 /***/ }),
-/* 17 */
+/* 21 */
 /***/ (function(module, exports) {
 
 angular.module('projectThree').service('UsersService', UsersService);
@@ -375,6 +450,7 @@ function UsersService($http) {
 	self.loadCurrent = loadCurrent;
 	self.addUser = addUser;
 	self.addJob = addJob;
+	self.loadCurrentJob = loadCurrentJob;
 
 	// Load current user
 	function loadCurrent(id) {
@@ -392,10 +468,14 @@ function UsersService($http) {
 		console.log('we are in services');
 		return $http.post('/users/' + id + '/jobs');
 	}
+
+	function loadCurrentJob(id) {
+		return $http.get('/users/' + userId + '/jobs/' + id);
+	}
 }
 
 /***/ }),
-/* 18 */
+/* 22 */
 /***/ (function(module, exports) {
 
 /**
@@ -5084,7 +5164,7 @@ angular.module('ui.router.state')
 })(window, window.angular);
 
 /***/ }),
-/* 19 */
+/* 23 */
 /***/ (function(module, exports) {
 
 /**
@@ -38461,78 +38541,93 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
-/* 20 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(19);
+__webpack_require__(23);
 module.exports = angular;
 
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports) {
-
-module.exports = "\n<h1>ABOUT PAGE</h1>\n<p>\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"</p>\n";
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"home\">\n<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</p>\n</div>\n";
-
-/***/ }),
-/* 23 */,
-/* 24 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container loginPage\">\n  <form action=\"/users\" method=\"GET\">\n    <div class=\"header\">\n      <h2>User Login!</h2>\n    </div>\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" placeholder=\"Enter Email\" name=\"email\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"password\" placeholder=\"Enter Password\" name=\"password\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <button type=\"submit\">Login</button>\n      <input type=\"checkbox\" checked=\"checked\"> Remember me\n    </div>\n    </div>\n  </form>\n</div>\n";
 
 /***/ }),
 /* 25 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"form-group\">\n  <label for=\"comment\">Note:</label>\n  <textarea class=\"form-control\" rows=\"5\" id=\"comment\"></textarea>\n  <br />\n  <button class=\"btn btn-success\" type=\"submit\" value=\"Save Note!\">Save Note!</button>\n</div>\n\n";
+module.exports = "\n<h1>ABOUT PAGE</h1>\n<p>\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"</p>\n";
 
 /***/ }),
 /* 26 */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Sign Up</h2>\n<br />\n\n<div class=\"container signup\">\n<!--   <form action=\"/users\" method=\"post\"> -->\n  <form ng-submit=\"$ctrl.addNewUser()\" id=\"newUser\">\n    <div>\n      <label for=\"firstName\">First name</label>\n      <input type=\"text\" ng-model=\"$ctrl.newUser.firstName\" name=\"firstName\" required=\"required\">\n    </div>\n    <br />\n\n    <div>\n      <label for=\"lastName\">Last name</label>\n      <input type=\"text\" name=\"lastName\" ng-model=\"$ctrl.newUser.lastName\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" name=\"email\" ng-model=\"$ctrl.newUser.email\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"text\" name=\"password\" ng-model=\"$ctrl.newUser.password\" required=\"required\">\n    </div>\n\n    <br />\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n";
+module.exports = "<div class=\"home\">\n<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</p>\n</div>\n";
 
 /***/ }),
 /* 27 */
 /***/ (function(module, exports) {
 
-module.exports = "<form ng-submit=\"$ctrl.addUser($ctrl.newUser)\">\n<input type=\"text\" required=\"required\" placeholder=\"Add Email\" ng-model=\"$ctrl.newUser.email\">\n<input type=\"text\" required=\"required\" placeholder=\"Add Password\" ng-model=\"$ctrl.newUser.password\">\n\n<input type=\"submit\" value=\"Add New User\">\n</form>\n";
+module.exports = "<h2>Jobs Board</h2>\n<br />\n<div class=\"container signup\">\n  <form action=\"/users/:id/jobs\" method=\"POST\">\n\n  <div class=\"form-group row\">\n  <label for=\"example-text-input\" class=\"col-2 col-form-label\">Company</label>\n <div class=\"col-10\">\n    <input class=\"form-control\" type=\"text\" value=\"Company\" id=\"example-text-input\" required=\"required\">\n  </div>\n <br />\n</div>\n<div class=\"form-group row\">\n <label for=\"example-search-input\" class=\"col-2 col-form-label\">Job Title</label>\n <div class=\"col-10\">\n   <input class=\"form-control\" type=\"text\" value=\"Job Title\" id=\"example-search-input\" required=\"required\">\n </div>\n  <br />\n </div>\n<div class=\"form-group row\">\n  <label for=\"example-email-input\" class=\"col-2 col-form-label\">Phone</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"tel\" value=\"555-555-5555\" id=\"example-email-input\">\n </div>\n <br />\n</div>\n <div class=\"form-group row\">\n   <label for=\"example-email-input\" class=\"col-2 col-form-label\">Email</label>\n   <div class=\"col-10\">\n    <input class=\"form-control\" type=\"email\" value=\"LedgR@example.com\" id=\"example-email-input\">\n   </div>\n   <br />\n </div>\n <div class=\"form-group row\">\n   <label for=\"example-url-input\" class=\"col-2 col-form-label\">Website</label>\n  <div class=\"col-10\">\n     <input class=\"form-control\" type=\"url\" value=\"https://www.LedgR.com\" id=\"example-url-input\">\n   </div>\n   <br />\n </div>\n\n<!-- <form class=\"form-inline\"> -->\n  <label class=\"mr-sm-2\" for=\"inlineFormCustomSelect\">Applied</label>\n  <select class=\"custom-select mb-2 mr-sm-2 mb-sm-0\" id=\"inlineFormCustomSelect\">\n    <option selected>Choose...</option>\n    <option value=\"1\">Yes</option>\n    <option value=\"2\">No</option>\n  </select>\n\n  <label class=\"custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0\">\n    <!-- <input type=\"checkbox\" class=\"custom-control-input\"> -->\n    <!-- <span class=\"custom-control-indicator\"></span> -->\n    <!-- <span class=\"custom-control-description\">Remember my preference</span> -->\n  </label>\n\n  <!-- <button type=\"submit\" class=\"btn btn-primary\">Submit</button> -->\n<!-- </form> -->\n<div class=\"form-group row\">\n  <label for=\"example-datetime-local-input\" class=\"col-2 col-form-label\">Date and time</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"datetime-local\" value=\"2011-08-19T13:45:00\" id=\"example-datetime-local-input\">\n  </div>\n</div>\n<br />\n\n<div class=\"form-group row\">\n  <label for=\"example-datetime-local-input\" class=\"col-2 col-form-label\">Created At</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"date\"  id=\"example-datetime-local-input\">\n  </div>\n</div>\n<br />\n\n    <input class=\"form-control btn-success\" type=\"submit\" value=\"Submit\" id=\"example-color-input\">\n  </div>\n</div>\n<br />\n\n<note>Note Component</note>\n";
 
 /***/ }),
 /* 28 */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"user\">\n\t<h1>This is our 'User Dashboard Page' - Project Three</h1>\n\t<!-- Added user email call  -->\n\t<h1> {{ $ctrl.user.email }}</h1>\n</p>\n";
+module.exports = "<h1>Show Job</h1>\n";
 
 /***/ }),
 /* 29 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container loginPage\">\n  <form action=\"/users\" method=\"GET\">\n    <div class=\"header\">\n      <h2>User Login!</h2>\n    </div>\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" placeholder=\"Enter Email\" name=\"email\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"password\" placeholder=\"Enter Password\" name=\"password\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <button type=\"submit\">Login</button>\n      <input type=\"checkbox\" checked=\"checked\"> Remember me\n    </div>\n    </div>\n  </form>\n</div>\n";
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"form-group\">\n  <label for=\"comment\">Note:</label>\n  <textarea class=\"form-control\" rows=\"5\" id=\"comment\"></textarea>\n  <br />\n  <button class=\"btn btn-success\" type=\"submit\" value=\"Save Note!\">Save Note!</button>\n</div>\n\n";
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Sign Up</h2>\n<br />\n\n<div class=\"container signup\">\n<!--   <form action=\"/users\" method=\"post\"> -->\n  <form ng-submit=\"$ctrl.addNewUser()\" id=\"newUser\">\n    <div>\n      <label for=\"firstName\">First name</label>\n      <input type=\"text\" ng-model=\"$ctrl.newUser.firstName\" name=\"firstName\" required=\"required\">\n    </div>\n    <br />\n\n    <div>\n      <label for=\"lastName\">Last name</label>\n      <input type=\"text\" name=\"lastName\" ng-model=\"$ctrl.newUser.lastName\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" name=\"email\" ng-model=\"$ctrl.newUser.email\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"text\" name=\"password\" ng-model=\"$ctrl.newUser.password\" required=\"required\">\n    </div>\n\n    <br />\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n";
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports) {
+
+module.exports = "<form ng-submit=\"$ctrl.addUser($ctrl.newUser)\">\n<input type=\"text\" required=\"required\" placeholder=\"Add Email\" ng-model=\"$ctrl.newUser.email\">\n<input type=\"text\" required=\"required\" placeholder=\"Add Password\" ng-model=\"$ctrl.newUser.password\">\n\n<input type=\"submit\" value=\"Add New User\">\n</form>\n";
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports) {
+
+module.exports = "<p class=\"user\">\n\t<h1>This is our 'User Dashboard Page' - Project Three</h1>\n\t<!-- Added user email call  -->\n\t<h1> {{ $ctrl.user.email }}</h1>\n</p>\n";
+
+/***/ }),
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(8);
 __webpack_require__(9);
-__webpack_require__(0);
 __webpack_require__(10);
-__webpack_require__(1);
+__webpack_require__(0);
 __webpack_require__(11);
-__webpack_require__(2);
+__webpack_require__(1);
 __webpack_require__(12);
-__webpack_require__(3);
+__webpack_require__(2);
 __webpack_require__(13);
-__webpack_require__(4);
+__webpack_require__(3);
 __webpack_require__(14);
-__webpack_require__(5);
 __webpack_require__(15);
-__webpack_require__(6);
 __webpack_require__(16);
+__webpack_require__(4);
+__webpack_require__(17);
+__webpack_require__(5);
+__webpack_require__(18);
+__webpack_require__(6);
+__webpack_require__(19);
 __webpack_require__(7);
-module.exports = __webpack_require__(17);
+__webpack_require__(20);
+__webpack_require__(8);
+module.exports = __webpack_require__(21);
 
 
 /***/ })
