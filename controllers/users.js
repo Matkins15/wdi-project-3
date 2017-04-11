@@ -100,17 +100,13 @@ router.post('/:userId/jobs/:id/notes', function createNoteAction(request, respon
 			console.log(jobsArray);
 			var targetJob = jobsArray.id(request.params.id);
 			console.log(targetJob);
-			Jobs.findById(request.params.id)
-				.exec(function(err, jobs) {
-					console.log(targetJob);
-					user.jobs.push(new Notes(request.body));
-						console.log('### Note added to DB ###');
-					user.save(function(err) {
-						if (err) console.log(err);
+			targetJob.notes.push(new Notes(request.body));
+				console.log('### Note added to DB ###');
+			user.save(function(err) {
+				if (err) console.log(err);
 
-						response.json({ user: user });
-					});
-				});
+				response.json({ user: user });
+			});
 		});
 });
 
