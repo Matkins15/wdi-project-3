@@ -130,6 +130,15 @@ router.post('/:userId/jobs/:id/notes', function createNoteAction(request, respon
 });
 
 //PATCH User.Jobs
+// router.patch('/:userId/jobs/:id')
+// 	var id = request.params.id;
+// 	var userId = request.params.userId;
+
+// 	User.findById({_id: userId}, function(error, user) {
+// 		if(error) response.json({message: 'Could not find User because ' + error })0;
+
+// 		if(request.body.) 
+// 	})
 
 
 //PATCH User.Jobs.Notes //FOR LATER, STRETCH GOAL
