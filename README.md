@@ -1,10 +1,11 @@
-# wdi-project-3
+# LedgR
+
 
 Contributing Developers:
 * Joy Sutton
 * Matt Atkins
 * [Blake Smith](https://bs3589.github.io/Portfolio/)
-* Josh Seipel
+* [Josh Seipel](https://jaguarj.github.io/myportfolio/)
 
 [Trello](https://trello.com/b/u3maELMv/project-three)
 
