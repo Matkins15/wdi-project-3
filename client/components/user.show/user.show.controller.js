@@ -1,6 +1,6 @@
-UserController.$inject = ['$stateParams', 'UsersService'];
+UserShowController.$inject = ['$stateParams', 'UsersService'];
 
-function UsersShowController($stateParams, UsersService) {
+function UserShowController($stateParams, UsersService) {
 	const vm = this;
 
 	vm.current = {};
@@ -17,8 +17,6 @@ function UsersShowController($stateParams, UsersService) {
 				vm.current = response.data.user;
 			});
 	}
-
-
 }
 
-module.exports = UsersShowController;
+module.exports = UserShowController;
