@@ -103,6 +103,7 @@ router.post('/:userId/jobs', function createJobAction(request, response) {
 
 // });
 
+
 //POST User.Jobs.Notes
 router.post('/:userId/jobs/:id/notes', function createNoteAction(request, response) {
 	console.log('### User.Job.Note ###');
@@ -126,6 +127,15 @@ router.post('/:userId/jobs/:id/notes', function createNoteAction(request, respon
 						response.json({ user: user });
 					});
 				});
+
+			console.log(targetJob);
+			targetJob.notes.push(new Notes(request.body));
+				console.log('### Note added to DB ###');
+			user.save(function(err) {
+				if (err) console.log(err);
+
+				response.json({ user: user });
+			});
 		});
 });
 
