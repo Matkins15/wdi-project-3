@@ -112,9 +112,9 @@ router.post('/:userId/jobs/:id/notes', function createNoteAction(request, respon
 			console.log(user);
 			var targetUser = user;
 			var jobsArray = user.jobs;
-			console.log(jobsArray);
+			// console.log(jobsArray);
 			var targetJob = jobsArray.id(request.params.id);
-			console.log(targetJob);
+			// console.log(targetJob);
 			Jobs.findById(request.params.id)
 				.exec(function(err, jobs) {
 					console.log(targetJob);
@@ -129,16 +129,38 @@ router.post('/:userId/jobs/:id/notes', function createNoteAction(request, respon
 		});
 });
 
-//PATCH User.Jobs
-// router.patch('/:userId/jobs/:id')
-// 	var id = request.params.id;
-// 	var userId = request.params.userId;
+// PATCH User.Jobs
+//
+router.patch('/:userId/jobs/:id', function updateAction(request, response) {
 
-// 	User.findById({_id: userId}, function(error, user) {
-// 		if(error) response.json({message: 'Could not find User because ' + error })0;
+	var id = request.params.id;
+	var userId = request.params.userId;
 
-// 		if(request.body.) 
-// 	})
+	//get target user
+	//within target user, get target job
+		//find by id job in question
+		//set job by req.body
+	//save user
+
+	User
+		.findById(userId)
+		.exec(function getTargetJob(error, user) {
+			var thisJob = user.jobs.id(id);
+			console.log(thisJob);
+			thisJob.company = request.body.company;
+
+			user.save();
+			response.json({message:'Job updated', user: user });
+		})
+		// Jobs.findById(request.params.id)
+		// .exec(function(error, result) {
+
+		// 	response.json({message:'Job updated', user: result });
+		// });
+
+	
+});
+
 
 
 //PATCH User.Jobs.Notes //FOR LATER, STRETCH GOAL
