@@ -2,19 +2,24 @@
 <p class="user">
 	<h1>This is our 'User Dashboard Page' - Project Three</h1>
 	<!-- Added user email call  -->
-	<h1> {{ $ctrl.current.email }}</h1>
+<!-- 	<h1> {{ $ctrl.current.email }}</h1> -->
 </p>
 
-
+<!-- userId: $ctrl.current._id -->
 	<div ng-repeat="jobs in $ctrl.current.jobs">
-	{{ 2 + 2 }}
-
-		{{jobs.company}}
-
-		 <input class="form-control btn-warning" type="submit" value="Edit" id="example-color-input">
-		 <input class="form-control btn-danger" type="submit" value="Delete" id="example-color-input">
-		 <input class="form-control btn-success" type="submit" value="Submit" id="example-color-input">
-
+		<a ui-sref="jobIdShow({ jobId: jobs._id, userId: $ctrl.current._id })">
+			<div>
+			{{jobs.company}}
+			{{jobs.job_title}}
+			{{jobs.phone}}
+			{{jobs.email}}
+			{{jobs.website}}
+			</div>
+		</a>
 	</div>
-
+	
 </div>
+<!-- ADD THESE TO INDIVIDUAL JOB SHOW PAGE -->
+<!-- 		 <input class="form-control btn-warning" type="submit" value="Edit" id="example-color-input">
+		 <input class="form-control btn-danger" type="submit" value="Delete" id="example-color-input">
+		 <input class="form-control btn-success" type="submit" value="Submit" id="example-color-input"> -->
