@@ -25,17 +25,11 @@ form {
 	background-image: url('https://source.unsplash.com/aG-pvyMsbis');
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 100vh;
+	height: 140vh;
 	opacity: 0.8;
 }
 
-#home-well {
-	color: black;
-	opacity: 1;
-	width: 40vw;
-	margin: auto;
-	border-radius: 20px;
-}
+
 
 #about-container {
 	padding: 10em;
@@ -69,7 +63,7 @@ form {
 
 .card-block {
 	height: 600px;
-	width: 500px;
+	width: 420px;
 	padding: 10px;
 	margin: auto;
 	padding: 70px 0;
@@ -223,3 +217,27 @@ footer {
 .btn {
 	margin: 5px;
 }
+
+#home-well {
+    color: black;
+    
+    width: 400px;
+    height: 500px;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+#home-well img {
+   /* width: 30em;
+    height: 30em;*/
+    width: 350px;
+    height: 350px;
+    
+
+}
+
+/*#home-well p {
+    object-fit: contain;
+}*/
+
