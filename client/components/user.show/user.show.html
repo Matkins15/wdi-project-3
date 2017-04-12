@@ -1,6 +1,6 @@
 <div  ng-controller="$ctrl.loadCurrentUser as user">
 <p class="user">
-	<h1>This is our 'User Dashboard Page' - Project Three</h1>
+	<h1>User Dashboard</h1>
 	<!-- Added user email call  -->
 <!-- 	<h1> {{ $ctrl.current.email }}</h1> -->
 </p>
@@ -10,10 +10,11 @@
 <div class="card-group">
 	<div ng-repeat="jobs in $ctrl.current.jobs">
 		<!-- <a ui-sref="jobId({ jobId: jobs._id, userId: $ctrl.current._id })"> -->
-			<div>
-			<div class="card" id="jobCards">
+		<div class="dashboard-content">
+			<div id="jobCards">
 			    <div class="card-block">
-			      <a ui-sref="jobId({ jobId: jobs._id, userId: $ctrl.current._id })"><h4 class="card-title">{{jobs.company}}</h4></a>
+			      <a ui-sref="jobId({ jobId: jobs._id, userId: $ctrl.current._id })">
+			      <h3 class="card-title">{{jobs.company}}</h3></a>
 			      <p class="card-text">{{jobs.job_title}}</p>
 			      <p class="card-text">{{jobs.phone}}</p>
 			      <p class="card-text">{{jobs.email}}</p>
@@ -23,19 +24,4 @@
 		</div>
 	</div>
 </div>
-			<!-- <div class="card card-inverse card-info mb-3 text-center">
-  				<div class="card-block">
-			    <blockquote class="card-blockquote">
-			    <header>{{jobs.company}}</header>
-			      <p>{{jobs.job_title}}</p>
-			      <p>{{jobs.phone}}</p>
-			      <p>{{jobs.email}}</p>
-			      <p>{{jobs.website}}</p>
-			    </blockquote>
-			  </div>
-			{{jobs.company}}
-			{{jobs.job_title}}
-			{{jobs.phone}}
-			{{jobs.email}}
-			{{jobs.website}}
-			</div> -->
+
