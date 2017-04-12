@@ -1,4 +1,5 @@
 
+
 .navbar.navbar-default {
 	margin: 0px;
 	background-color: white;
@@ -8,9 +9,17 @@ button.btn-default {
 	background-color: #EEE;
 }
 
-.home-background {
-	height: 100vh;
+button.login-button {
+	border-radius: 50px;
 }
+
+form {
+	border-radius: 20px;
+}
+
+/*.home-background {
+	height: 100vh;
+}*/
 
 .home {
 	background-image: url('https://source.unsplash.com/aG-pvyMsbis');
@@ -87,8 +96,7 @@ input[type=email], input[type=password] {
     opacity: 0.8;
 }
 
-.sign-up{
-	height: 100vh;
+.sign-up {
 	background-color: #E0BFA8;
 }
 
@@ -100,8 +108,22 @@ input[type=email], input[type=password] {
 	background-color: #fff;
 }
 
+.login {
+	background-color: #E0BFA8;
+	height: 100vh;
+}
+
+#login-container {
+	padding: 7em;
+}
+
+#login-start {
+	background-color: #fff;
+}
+
 form input {
-	width: 50vw;
+	width: 300px !important;
+	margin: 20px 50px 20px 50px !important;
 }
 
 input[type=email], input[type=password], input[type=text] {
@@ -113,20 +135,14 @@ input[type=email], input[type=password], input[type=text] {
     box-sizing: border-box;
 }
 
-.container.sign-up {
+/*.container.sign-up {
 	background-color: white;
 	width: 500px;
-}
+}*/
 
-
-.login-page{
-	background-color: #E0BFA8;
-	height: 100vh;
-}
-
-.login-box{
+/*.login-box{
 	background-color: white;
-}
+}*/
 
 .submit-button {
 	background-color: blue;
