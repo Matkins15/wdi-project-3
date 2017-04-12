@@ -1,12 +1,16 @@
-JobsShowController.$inject = ['$stateParams', 'UsersService'];
+JobsShowController.$inject = ['$stateParams', 'UsersService', '$state'];
 
-function JobsShowController($stateParams, UsersService) {
+function JobsShowController($stateParams, UsersService, $state) {
 	const vm = this;
+	const userId = $stateParams.userId;
 
+	vm.addNote = addNote;
+	vm.newNote = {};
 	vm.loadCurrentJob = loadCurrentJob;
 	vm.currentJob = {};
 	vm.userId = $stateParams.userId;
 	vm.jobId = $stateParams.jobId;
+	vm.deleteJob = deleteJob;
 
 	activate();
 	function activate() {
@@ -24,6 +28,32 @@ function JobsShowController($stateParams, UsersService) {
 				console.log("Returned from service dude!");
 				console.log(response);
 				vm.currentJob = response.data.targetJob;
+			});
+	}
+
+	function deleteJob(userId, jobId) {
+		console.log(userId + jobId);
+		console.log('Reached delete function');
+
+		//HELP IDS NOT BEING SENT TO DELETE
+		UsersService
+			.deleteJob(userId, jobId)
+			.then(function resolve(response) {
+
+				//HELP USERID NOT SENDING TO STATE
+				$state.go('userShow', ({ userId: vm.userId }));
+			})
+	}
+
+	function addNote(userId, jobId, newNote) {
+		console.log('we have reached the addNote controller');
+		console.log(vm.newNote);
+		UsersService
+			.addNote(vm.userId, vm.jobId, vm.newNote)
+			.then(function resolve(response) {
+
+				//HELP Notes being sent, not being accepted, perhaps an iddue with dot.notation?
+				// redirectToDash();
 			});
 	}
 

@@ -12,8 +12,34 @@
 				Phone: {{$ctrl.currentJob.phone}}
 				<br />
 				Website: {{$ctrl.currentJob.website}}
+				<form>
+				<button class="btn btn-default" ui-sref="jobsEdit">Edit</button>
+				</form>
+				<br />
+				<form ng-submit="$ctrl.deleteJob({userId: userId, jobId: jobId})">
+				<button class="btn btn-default" >Delete</button>
+				</form>
+				<br />
+				<div>
+					<div>
+					Add notes component
+						<form ng-submit="$ctrl.addNote()" id="newNote">
+							<div class="form-group row">
+							  <label for="example-text-input" class="col-2 col-form-label">Note:</label>
+							 <div class="col-10">
+							    <input class="form-control" type="text" value="Note" id="example-text-input" required="required" ng-model="$ctrl.newNote.notes">
+							  </div>
+							 <br />
+							     <input class="form-control btn-success" type="submit" value="Submit" id="example-color-input">
+					</div>
+					<div ng-repeat="notes in $ctrl.currentJob.notes">
+						{{notes.notes}}
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
 </div>
 
+<!-- ui-sref="userShow({userId: $ctrl.userId})" -->

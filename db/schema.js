@@ -14,8 +14,7 @@ var mongoose = require('mongoose');
 
 const NotesSchema = mongoose.Schema({
 	notes: {
-		type: String,
-		required: true
+		type: String
 		},
 	created_at: Date
 
@@ -23,8 +22,7 @@ const NotesSchema = mongoose.Schema({
 
 const JobsSchema = mongoose.Schema({
 	company: {
-		type: String,
-		required: true
+		type: String
 		},
 	job_title: String,
 	phone: String,

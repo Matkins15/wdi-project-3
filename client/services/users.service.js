@@ -11,10 +11,17 @@ function UsersService($http) {
 	self.addUser = addUser;
 	self.addJob = addJob;
 	self.loadCurrentJob = loadCurrentJob;
+	self.loadAll = loadAll;
+	self.deleteJob = deleteJob;
+	self.addNote = addNote;
 
 	// Load current user
 	function loadCurrent(id) {
 		return $http.get('/users/' + id);
+	}
+
+	function loadAll(email) {
+		return $http.get('/users');
 	}
 
 	function addUser(newUser) {
@@ -24,7 +31,6 @@ function UsersService($http) {
 
 	function addJob(userId, newJob) {
 
-		//NEED TO FIND OUT ABOUT GETTING USERID FOR POST
 		console.log('we are in services');
 		return $http.post('/users/' + userId + '/jobs', newJob);
 	}
@@ -32,5 +38,13 @@ function UsersService($http) {
 	// Load current Job
 	function loadCurrentJob(userId, jobId) {
 		return $http.get('/users/' + userId + '/jobs/' + jobId);
+	}
+
+	function deleteJob(userId, jobId) {
+		return $http.delete('/users/' + userId + '/jobs/' + jobId);
+	}
+
+	function addNote(userId, jobId, newNote) {
+		return $http.post('/users/' + userId + '/jobs/' + jobId + '/notes');
 	}
 }
