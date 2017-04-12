@@ -107,7 +107,7 @@ router.post('/:userId/jobs', function createJobAction(request, response) {
 //POST User.Jobs.Notes
 router.post('/:userId/jobs/:id/notes', function createNoteAction(request, response) {
 	console.log('### User.Job.Note ###');
-	var jobId =request.params.id;
+	var jobId = request.params.id;
 	User.findById(request.params.userId)
 		.exec(function(err, user) {
 			console.log(user);
@@ -115,27 +115,31 @@ router.post('/:userId/jobs/:id/notes', function createNoteAction(request, respon
 			var jobsArray = user.jobs;
 			// console.log(jobsArray);
 			var targetJob = jobsArray.id(request.params.id);
+			// var newNote = request.body;
+			console.log("####LOOK HERE####");
 			// console.log(targetJob);
-			Jobs.findById(request.params.id)
-				.exec(function(err, jobs) {
-					console.log(targetJob);
-					user.jobs.push(new Notes(request.body));
-						console.log('### Note added to DB ###');
-					user.save(function(err) {
-						if (err) console.log(err);
-
-						response.json({ user: user });
-					});
-				});
-
-			console.log(targetJob);
-			targetJob.notes.push(new Notes(request.body));
+			// console.log(request.body);
+			//THIS IS THE BREAK POINT
+			var newNote = new Notes(request.body)
+			targetJob.notes.push(newNote);
+			// console.log(user);
+			console.log(targetJob.notes)
+			// console.log(response.body);
 				console.log('### Note added to DB ###');
 			user.save(function(err) {
 				if (err) console.log(err);
-
-				response.json({ user: user });
+				response.json({ note: newNote });
 			});
+				
+
+			// console.log(targetJob);
+			// targetJob.notes.push(new Notes(request.body));
+			// 	console.log('### Note added to DB ###');
+			// user.save(function(err) {
+			// 	if (err) console.log(err);
+
+			// 	response.json({ user: user });
+			// });
 		});
 });
 
@@ -151,20 +155,20 @@ router.patch('/:userId/jobs/:id', function updateAction(request, response) {
 		//find by id job in question
 		//set job by req.body
 	//save user
-
 	User
 		.findById(userId)
 		.exec(function getTargetJob(error, user) {
-			var thisJob = user.jobs.id(id);
-			console.log(thisJob);
-			thisJob.company = request.body.company;
-			thisJob.job_title = request.body.job_title;
-			thisJob.phone = request.body.phone;
-			thisJob.email = request.body.email;
-			thisJob.website = request.body.website;
-			thisJob.applied = request.body.applied;
-			thisJob.created_at = request.body.created_at;
-
+			var targetUser = user;
+			var jobsArray = user.jobs;
+			// console.log(jobsArray);
+			var targetJob = jobsArray.id(request.params.id);
+			// var thisJob = user.jobs.id(id);
+			console.log(targetJob);
+			targetJob.company = request.body.company;
+			targetJob.job_title = request.body.job_title;
+			targetJob.phone = request.body.phone;
+			targetJob.email = request.body.email;
+			targetJob.website = request.body.website;
 			user.save();
 			response.json({message:'Job updated', user: user });
 		})
@@ -188,6 +192,8 @@ router.delete('/:userId/jobs/:id', function destroyJobAction(request, response) 
 
 	var userId = request.params.userId;
 	var jobId = request.params.id;
+	console.log(userId);
+	console.log(jobId);
 
 	User
 		.findByIdAndUpdate(userId, {
@@ -195,7 +201,8 @@ router.delete('/:userId/jobs/:id', function destroyJobAction(request, response) 
 				jobs: {_id: jobId}
 			}
 		})
-		.exec(function() {
+		.exec(function(error, user) {
+			if (error) console.log(error);
 			response.json({message: 'Job successfully deleted'});
 		});
 
