@@ -190,15 +190,18 @@ UserShowController.$inject = ['$stateParams', 'UsersService'];
 function UserShowController($stateParams, UsersService) {
 	const vm = this;
 
+	vm.loadCurrentUser = loadCurrentUser;
 	vm.current = {};
 
 	activate();
-	function activate() {}
+	function activate() {
+		loadCurrentUser();
+	}
 
 	function loadCurrentUser() {
 		console.log($stateParams);
 		//make sure when the route loads you make a reference to .userId in the new controller?
-		UsersService.load($stateParams.userId).then(function resolve(response) {
+		UsersService.loadCurrent($stateParams.userId).then(function resolve(response) {
 			vm.current = response.data.user;
 		});
 	}
@@ -222,7 +225,7 @@ uiRouterSetup.$inject = ['$stateProvider', '$urlRouterProvider'];
 function uiRouterSetup($stateProvider, $urlRouterProvider) {
 
 	$stateProvider.state('home', {
-		url: '/home',
+		url: '/',
 		template: '<home></home>'
 	}).state('about', {
 		url: '/about',
@@ -243,7 +246,7 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 		url: '/:userId/jobs',
 		template: '<jobs-new></jobs-new>'
 	}).state('jobsShow', {
-		// HEY, /:userId/jobs?
+		// HEY, /:userId/jobs? MIGHT NOT NEED
 		url: '/:userId/jobs',
 		template: '<jobs-show></jobs-show>'
 		// template: '<job-new></job-new>'
@@ -254,7 +257,10 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 	// 	template: '<job-show></job-show>'
 	// })
 
-	.state('jobsEdit', {
+	.state('jobIdShow', {
+		url: '/:userId/jobs/:jobId',
+		template: '<job-id-show></job-id-show>'
+	}).state('jobsEdit', {
 		url: '/:userId/jobs/:jobId',
 		template: '<job-edit></job-edit>'
 	});
@@ -376,7 +382,7 @@ const controller = __webpack_require__(8);
 const template = __webpack_require__(31);
 
 const component = {
-	contoller: controller,
+	controller: controller,
 	template: template
 };
 
@@ -38498,13 +38504,13 @@ module.exports = angular;
 /* 23 */
 /***/ (function(module, exports) {
 
-module.exports = "\n<h1>ABOUT PAGE</h1>\n<p>\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"</p>\n";
+module.exports = "<div class=\"about-page\">\n  <div id=\"about-container\">\n      <div id=\"about-body\" class=\"well\">\n        <h1>ABOUT PAGE</h1>\n        <p>\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"</p>\n    </div>\n  </div>\n</div>\n";
 
 /***/ }),
 /* 24 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"home\">\n<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</p>\n</div>\n";
+module.exports = "<div class=\"home\">\n  <div class=\"card-block\">\n    <div class=\"home-card\">\n      <div id=\"home-well\" class=\"well\">\n        <h3>LedgR</h3>\n        <p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</p>\n      </div>\n    </div>\n  </div>\n</div>\n";
 
 /***/ }),
 /* 25 */,
@@ -38523,7 +38529,7 @@ module.exports = "<h2>Jobs Board</h2>\n<br />\n<div class=\"container signup\">\
 /* 28 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container loginPage\">\n  <form action=\"/users\" method=\"GET\">\n    <div class=\"header\">\n      <h2>User Login!</h2>\n    </div>\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" placeholder=\"Enter Email\" name=\"email\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"password\" placeholder=\"Enter Password\" name=\"password\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <button type=\"submit\">Login</button>\n      <input type=\"checkbox\" checked=\"checked\">\n    </div>\n  </form>\n</div>\n";
+module.exports = "<div class=\"login\">\n  <div id=\"login-container\">\n    <div id=\"login-card\">\n      <form action=\"/users\" method=\"GET\" id=\"login-start\">\n\n        <div class=\"header\">\n          <h2>User Login!</h2>\n        </div>\n        <hr>\n        <div>\n          <label for=\"email\">Email</label><br>\n          <input type=\"email\" placeholder=\"Enter Email\" name=\"email\" required=\"required\">\n        </div>\n\n        <div>\n          <label for=\"password\">Password</label><br>\n          <input type=\"password\" placeholder=\"Enter Password\" name=\"password\" required=\"required\">\n        </div>\n\n        <div>\n          <button class=\"login-button\" type=\"submit\">Login</button>\n        </div>\n\n      </form>\n    </div>\n  </div>\n</div>\n";
 
 /***/ }),
 /* 29 */
@@ -38535,13 +38541,13 @@ module.exports = "<div class=\"form-group\">\n  <label for=\"comment\">Note:</la
 /* 30 */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Sign Up</h2>\n<br />\n\n<div class=\"container signup\">\n<!--   <form action=\"/users\" method=\"post\"> -->\n  <form ng-submit=\"$ctrl.addNewUser()\" id=\"newUser\">\n    <div>\n      <label for=\"firstName\">First name</label>\n      <input type=\"text\" ng-model=\"$ctrl.newUser.firstName\" name=\"firstName\" required=\"required\">\n    </div>\n    <br />\n\n    <div>\n      <label for=\"lastName\">Last name</label>\n      <input type=\"text\" name=\"lastName\" ng-model=\"$ctrl.newUser.lastName\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" name=\"email\" ng-model=\"$ctrl.newUser.email\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"text\" name=\"password\" ng-model=\"$ctrl.newUser.password\" required=\"required\">\n    </div>\n\n    <br />\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n";
+module.exports = "\n<div class=\"sign-up\">\n  <div id=\"sign-up-container\">\n    <div id=\"sign-up-card\">\n      <form ng-submit=\"$ctrl.addNewUser()\" id=\"newUser\">\n        <div class=\"header\">\n          <h2>SignUp!</h2>\n        </div>\n\n        <hr>\n\n        <div>\n          <label for=\"firstName\">First name</label><br>\n          <input class=\"formInput\" type=\"text\" ng-model=\"$ctrl.newUser.firstName\" name=\"firstName\" required=\"required\">\n        </div>\n\n        <div>\n          <label for=\"lastName\">Last name</label><br>\n          <input class=\"formInput\" type=\"text\" name=\"lastName\" ng-model=\"$ctrl.newUser.lastName\" required=\"required\">\n        </div>\n\n        <div>\n          <label for=\"email\">Email</label><br>\n          <input class=\"formInput\" type=\"email\" name=\"email\" ng-model=\"$ctrl.newUser.email\" required=\"required\">\n        </div>\n\n        <div>\n          <label for=\"password\">Password</label><br>\n          <input class=\"formInput\" type=\"text\" name=\"password\" ng-model=\"$ctrl.newUser.password\" required=\"required\">\n        </div>\n\n        <div>\n          <button class=\"login-button\" type=\"submit\">Sign Up!</button>\n          <!-- <input type=\"checkbox\" checked=\"checked\"> -->\n        </div>\n\n        <!-- <input class=\"signup-button\" type=\"submit\" value=\"Submit\"> -->\n      </form>\n    </div>\n  </div>\n</div>\n";
 
 /***/ }),
 /* 31 */
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"user\">\n\t<h1>This is our 'User Dashboard Page' - Project Three</h1>\n\t<!-- Added user email call  -->\n\t<h1> {{ $ctrl.user.email }}</h1>\n</p>\n";
+module.exports = "<div  ng-controller=\"$ctrl.loadCurrentUser as user\">\n<p class=\"user\">\n\t<h1>This is our 'User Dashboard Page' - Project Three</h1>\n\t<!-- Added user email call  -->\n<!-- \t<h1> {{ $ctrl.current.email }}</h1> -->\n</p>\n\n<!-- userId: $ctrl.current._id -->\n\t<div ng-repeat=\"jobs in $ctrl.current.jobs\">\n\t\t<a ui-sref=\"jobIdShow({ jobId: jobs._id, userId: $ctrl.current._id })\">\n\t\t\t<div>\n\t\t\t{{jobs.company}}\n\t\t\t{{jobs.job_title}}\n\t\t\t{{jobs.phone}}\n\t\t\t{{jobs.email}}\n\t\t\t{{jobs.website}}\n\t\t\t</div>\n\t\t</a>\n\t</div>\n\t\n</div>\n<!-- ADD THESE TO INDIVIDUAL JOB SHOW PAGE -->\n<!-- \t\t <input class=\"form-control btn-warning\" type=\"submit\" value=\"Edit\" id=\"example-color-input\">\n\t\t <input class=\"form-control btn-danger\" type=\"submit\" value=\"Delete\" id=\"example-color-input\">\n\t\t <input class=\"form-control btn-success\" type=\"submit\" value=\"Submit\" id=\"example-color-input\"> -->";
 
 /***/ }),
 /* 32 */
