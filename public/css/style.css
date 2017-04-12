@@ -63,12 +63,10 @@ form {
 }
 
 /* User Dashboard Job Card Main */
-<<<<<<< HEAD
-.my.card-block {
-=======
+
 .card-block {
 
->>>>>>> 48bfa00bdf029f1e8c4382a673201f4dfcb516b8
+
 	height: auto;
 	width: 50%;
 	background: #eee;
@@ -343,7 +341,7 @@ footer {
 
 #home-well {
     color: black;
-    
+
     width: 400px;
     height: 500px;
     margin: auto;
@@ -356,7 +354,7 @@ footer {
     height: 30em;*/
     width: 350px;
     height: 350px;
-    
+
 
 }
 
