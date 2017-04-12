@@ -32,7 +32,7 @@ form {
 #home-well {
 	color: black;
 	opacity: 1;
-	width: 40vw;
+	width: 50vw;
 	margin: auto;
 	border-radius: 20px;
 }
@@ -222,4 +222,9 @@ footer {
 
 .btn {
 	margin: 5px;
+}
+
+#home-well img {
+    width: 45vw;
+    height: 45vw;
 }
