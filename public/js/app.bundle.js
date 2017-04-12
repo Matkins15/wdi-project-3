@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 36);
+/******/ 	return __webpack_require__(__webpack_require__.s = 32);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -94,6 +94,12 @@ module.exports = HomeController;
 /* 2 */
 /***/ (function(module, exports) {
 
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/bs3589/ga/project_3/wdi-project-3/client/components/job.id.show/job.id.show.controller.js'");
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
 JobsEditController.$inject = [];
 
 function JobsEditController() {
@@ -103,7 +109,7 @@ function JobsEditController() {
 module.exports = JobsEditController;
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 JobsNewController.$inject = ['$stateParams', 'UsersService'];
@@ -123,31 +129,6 @@ function JobsNewController($stateParams, UsersService) {
 }
 
 module.exports = JobsNewController;
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-JobsShowController.$inject = ['$stateParams', 'UsersService'];
-
-function JobsShowController($stateParams, UsersService) {
-	const vm = this;
-
-	vm.currentJob = {};
-
-	activate();
-	function activate() {}
-
-	function loadCurrentJob() {
-		console.log($stateParams);
-		//make sure when the route loads you make a reference to .userId in the new controller?
-		UsersService.loadCurrentJob($stateParams.id).then(function resolve(response) {
-			vm.currentJob = response.data.job;
-		});
-	}
-}
-
-module.exports = JobsShowController;
 
 /***/ }),
 /* 5 */
@@ -229,8 +210,8 @@ module.exports = UserShowController;
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const angular = __webpack_require__(26);
-__webpack_require__(24);
+const angular = __webpack_require__(22);
+__webpack_require__(20);
 
 angular.module('projectThree', ['ui.router']).config(uiRouterSetup);
 
@@ -287,7 +268,7 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(0);
-const template = __webpack_require__(27);
+const template = __webpack_require__(23);
 
 const component = {
   controller: controller,
@@ -302,7 +283,7 @@ angular.module('projectThree').component('about', component);
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(1);
-const template = __webpack_require__(28);
+const template = __webpack_require__(24);
 
 const component = {
 	contoller: controller,
@@ -313,10 +294,16 @@ angular.module('projectThree').component('home', component);
 
 /***/ }),
 /* 12 */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/bs3589/ga/project_3/wdi-project-3/client/components/job.id.show/job.id.show.component.js'");
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const controller = __webpack_require__(2);
-const template = __webpack_require__(29);
+const controller = __webpack_require__(3);
+const template = __webpack_require__(26);
 
 const component = {
 	controller: controller,
@@ -326,11 +313,11 @@ const component = {
 angular.module('projectThree').component('jobsEdit', component);
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const controller = __webpack_require__(3);
-const template = __webpack_require__(30);
+const controller = __webpack_require__(4);
+const template = __webpack_require__(27);
 
 const component = {
   controller: controller,
@@ -340,53 +327,11 @@ const component = {
 angular.module('projectThree').component('jobsNew', component);
 
 /***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-const controller = __webpack_require__(4);
-const template = __webpack_require__(31);
-
-const component = {
-  controller: controller,
-  template: template
-};
-
-angular.module('projectThree').component('jobsShow', component);
-
-/***/ }),
 /* 15 */
-/***/ (function(module, exports) {
-
-// const controller = require('./jobs.controller.js');
-// const template = require('./jobs.html');
-//
-// const component = {
-// 	controller: controller,
-// 	template: template
-// };
-//
-// angular
-// 	.module('projectThree')
-// 	.component('jobs', component);
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-// JobsController.$inject = [];
-//
-// function JobsController() {
-// 	const vm = this;
-// }
-//
-// module.exports = JobsController;
-
-/***/ }),
-/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(5);
-const template = __webpack_require__(32);
+const template = __webpack_require__(28);
 
 const component = {
 	controller: controller,
@@ -396,11 +341,11 @@ const component = {
 angular.module('projectThree').component('login', component);
 
 /***/ }),
-/* 18 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(6);
-const template = __webpack_require__(33);
+const template = __webpack_require__(29);
 
 const component = {
 	controller: controller,
@@ -410,11 +355,11 @@ const component = {
 angular.module('projectThree').component('note', component);
 
 /***/ }),
-/* 19 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(7);
-const template = __webpack_require__(34);
+const template = __webpack_require__(30);
 
 const component = {
   controller: controller,
@@ -424,52 +369,11 @@ const component = {
 angular.module('projectThree').component('signup', component);
 
 /***/ }),
-/* 20 */
-/***/ (function(module, exports) {
-
-// const controller = require('./user.new.controller.js');
-// const template = require('./user.new.html');
-//
-// const component = {
-// 	controller: controller,
-// 	template: template
-// };
-//
-// angular
-// 	.module('projectThree')
-// 	.component('usersNew', component);
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports) {
-
-// UsersNewController.$inject = ['$stateParams', 'UsersService'];
-//
-// function UsersNewController($stateParams, UsersService) {
-// 	const vm = this;
-//
-// 	vm.addUser = addUser;
-// 	vm.newUser = {};
-// 	console.log('page loaded contoller');
-// 	function addUser(newUser){
-// 		console.log(newUser);
-// 		UsersService
-// 			.addUser(newUser)
-// 			.then(function() {
-// 				vm.newUser = {};
-// 			});
-// 	}
-// }
-//
-//
-// module.exports = UsersNewController;
-
-/***/ }),
-/* 22 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 const controller = __webpack_require__(8);
-const template = __webpack_require__(35);
+const template = __webpack_require__(31);
 
 const component = {
 	contoller: controller,
@@ -479,7 +383,7 @@ const component = {
 angular.module('projectThree').component('userShow', component);
 
 /***/ }),
-/* 23 */
+/* 19 */
 /***/ (function(module, exports) {
 
 angular.module('projectThree').service('UsersService', UsersService);
@@ -517,7 +421,7 @@ function UsersService($http) {
 }
 
 /***/ }),
-/* 24 */
+/* 20 */
 /***/ (function(module, exports) {
 
 /**
@@ -5206,7 +5110,7 @@ angular.module('ui.router.state')
 })(window, window.angular);
 
 /***/ }),
-/* 25 */
+/* 21 */
 /***/ (function(module, exports) {
 
 /**
@@ -38583,69 +38487,64 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
-/* 26 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(25);
+__webpack_require__(21);
 module.exports = angular;
 
 
 /***/ }),
-/* 27 */
+/* 23 */
 /***/ (function(module, exports) {
 
 module.exports = "\n<h1>ABOUT PAGE</h1>\n<p>\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"</p>\n";
 
 /***/ }),
-/* 28 */
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"home\">\n<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</p>\n</div>\n";
 
 /***/ }),
-/* 29 */
+/* 25 */,
+/* 26 */
 /***/ (function(module, exports) {
 
 module.exports = "<h2>Jobs Board Edit Page</h2>\n<br />\n<div class=\"container signup\">\n  <form action=\"/users/:id/jobs/:id\" method=\"POST\">\n\n  <div class=\"form-group row\">\n  <label for=\"example-text-input\" class=\"col-2 col-form-label\">Company</label>\n <div class=\"col-10\">\n    <input class=\"form-control\" type=\"text\" value=\"Company\" id=\"example-text-input\" required=\"required\">\n  </div>\n <br />\n</div>\n<div class=\"form-group row\">\n <label for=\"example-search-input\" class=\"col-2 col-form-label\">Job Title</label>\n <div class=\"col-10\">\n   <input class=\"form-control\" type=\"text\" value=\"Job Title\" id=\"example-search-input\" required=\"required\">\n </div>\n  <br />\n </div>\n<div class=\"form-group row\">\n  <label for=\"example-email-input\" class=\"col-2 col-form-label\">Phone</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"tel\" value=\"555-555-5555\" id=\"example-email-input\">\n </div>\n <br />\n</div>\n <div class=\"form-group row\">\n   <label for=\"example-email-input\" class=\"col-2 col-form-label\">Email</label>\n   <div class=\"col-10\">\n    <input class=\"form-control\" type=\"email\" value=\"LedgR@example.com\" id=\"example-email-input\">\n   </div>\n   <br />\n </div>\n <div class=\"form-group row\">\n   <label for=\"example-url-input\" class=\"col-2 col-form-label\">Website</label>\n  <div class=\"col-10\">\n     <input class=\"form-control\" type=\"url\" value=\"https://www.LedgR.com\" id=\"example-url-input\">\n   </div>\n   <br />\n </div>\n\n<!-- <form class=\"form-inline\"> -->\n  <label class=\"mr-sm-2\" for=\"inlineFormCustomSelect\">Applied</label>\n  <select class=\"custom-select mb-2 mr-sm-2 mb-sm-0\" id=\"inlineFormCustomSelect\">\n    <option selected>Choose...</option>\n    <option value=\"1\">Yes</option>\n    <option value=\"2\">No</option>\n  </select>\n\n  <label class=\"custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0\">\n    <!-- <input type=\"checkbox\" class=\"custom-control-input\"> -->\n    <!-- <span class=\"custom-control-indicator\"></span> -->\n    <!-- <span class=\"custom-control-description\">Remember my preference</span> -->\n  </label>\n\n  <!-- <button type=\"submit\" class=\"btn btn-primary\">Submit</button> -->\n<!-- </form> -->\n<div class=\"form-group row\">\n  <label for=\"example-datetime-local-input\" class=\"col-2 col-form-label\">Date and time</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"datetime-local\" value=\"2011-08-19T13:45:00\" id=\"example-datetime-local-input\">\n  </div>\n</div>\n<br />\n\n<div class=\"form-group row\">\n  <label for=\"example-datetime-local-input\" class=\"col-2 col-form-label\">Created At</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"date\"  id=\"example-datetime-local-input\">\n  </div>\n</div>\n<br />\n\n    <input class=\"form-control btn-success\" type=\"submit\" value=\"Submit\" id=\"example-color-input\">\n    <input class=\"form-control btn-danger\" type=\"submit\" value=\"Delete\" id=\"example-color-input\">\n  </div>\n</div>\n<br />\n\n<note>Note Component</note>\n";
 
 /***/ }),
-/* 30 */
+/* 27 */
 /***/ (function(module, exports) {
 
 module.exports = "<h2>Jobs Board</h2>\n<br />\n<div class=\"container signup\">\n  <form action=\"/users/:id/jobs\" method=\"POST\">\n\n  <div class=\"form-group row\">\n  <label for=\"example-text-input\" class=\"col-2 col-form-label\">Company</label>\n <div class=\"col-10\">\n    <input class=\"form-control\" type=\"text\" value=\"Company\" id=\"example-text-input\" required=\"required\">\n  </div>\n <br />\n</div>\n<div class=\"form-group row\">\n <label for=\"example-search-input\" class=\"col-2 col-form-label\">Job Title</label>\n <div class=\"col-10\">\n   <input class=\"form-control\" type=\"text\" value=\"Job Title\" id=\"example-search-input\" required=\"required\">\n </div>\n  <br />\n </div>\n<div class=\"form-group row\">\n  <label for=\"example-email-input\" class=\"col-2 col-form-label\">Phone</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"tel\" value=\"555-555-5555\" id=\"example-email-input\">\n </div>\n <br />\n</div>\n <div class=\"form-group row\">\n   <label for=\"example-email-input\" class=\"col-2 col-form-label\">Email</label>\n   <div class=\"col-10\">\n    <input class=\"form-control\" type=\"email\" value=\"LedgR@example.com\" id=\"example-email-input\">\n   </div>\n   <br />\n </div>\n <div class=\"form-group row\">\n   <label for=\"example-url-input\" class=\"col-2 col-form-label\">Website</label>\n  <div class=\"col-10\">\n     <input class=\"form-control\" type=\"url\" value=\"https://www.LedgR.com\" id=\"example-url-input\">\n   </div>\n   <br />\n </div>\n\n<!-- <form class=\"form-inline\"> -->\n  <label class=\"mr-sm-2\" for=\"inlineFormCustomSelect\">Applied</label>\n  <select class=\"custom-select mb-2 mr-sm-2 mb-sm-0\" id=\"inlineFormCustomSelect\">\n    <option selected>Choose...</option>\n    <option value=\"1\">Yes</option>\n    <option value=\"2\">No</option>\n  </select>\n\n  <label class=\"custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0\">\n    <!-- <input type=\"checkbox\" class=\"custom-control-input\"> -->\n    <!-- <span class=\"custom-control-indicator\"></span> -->\n    <!-- <span class=\"custom-control-description\">Remember my preference</span> -->\n  </label>\n\n  <!-- <button type=\"submit\" class=\"btn btn-primary\">Submit</button> -->\n<!-- </form> -->\n<div class=\"form-group row\">\n  <label for=\"example-datetime-local-input\" class=\"col-2 col-form-label\">Date and time</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"datetime-local\" value=\"2011-08-19T13:45:00\" id=\"example-datetime-local-input\">\n  </div>\n</div>\n<br />\n\n<div class=\"form-group row\">\n  <label for=\"example-datetime-local-input\" class=\"col-2 col-form-label\">Created At</label>\n  <div class=\"col-10\">\n    <input class=\"form-control\" type=\"date\"  id=\"example-datetime-local-input\">\n  </div>\n</div>\n<br />\n\n    <input class=\"form-control btn-success\" type=\"submit\" value=\"Submit\" id=\"example-color-input\">\n  </div>\n</div>\n<br />\n\n<note>Note Component</note>\n";
 
 /***/ }),
-/* 31 */
-/***/ (function(module, exports) {
-
-module.exports = "<h1>Jobs Show Board</h1>\n\n<div ng-controller=\"JobsShowController as job\">\n\n<!-- 1. Not sure how to call this for sure but added it anyway.  -->\n<!-- 2. Added a filter to sort by descending order. -->\n\t<div ng-repeat=\"job in projectThree.user.jobs.length | orderBy: '-job'\">\n\t\t <input class=\"form-control btn-warning\" type=\"submit\" value=\"Edit\" id=\"example-color-input\">\n\t\t <input class=\"form-control btn-danger\" type=\"submit\" value=\"Delete\" id=\"example-color-input\">\n\t\t <input class=\"form-control btn-success\" type=\"submit\" value=\"Submit\" id=\"example-color-input\">\n\n<!-- 3. A little iffy on this ng-if declaration, our schema doesn't have a job obj.-->\n\t\t<note ng-if=\"note.jobs\">Your Notes</note>\n\n\t<div>\n\n</div>\n";
-
-/***/ }),
-/* 32 */
+/* 28 */
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container loginPage\">\n  <form action=\"/users\" method=\"GET\">\n    <div class=\"header\">\n      <h2>User Login!</h2>\n    </div>\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" placeholder=\"Enter Email\" name=\"email\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"password\" placeholder=\"Enter Password\" name=\"password\" required=\"required\">\n    </div>\n    <br />\n    <div>\n      <button type=\"submit\">Login</button>\n      <input type=\"checkbox\" checked=\"checked\">\n    </div>\n  </form>\n</div>\n";
 
 /***/ }),
-/* 33 */
+/* 29 */
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"form-group\">\n  <label for=\"comment\">Note:</label>\n  <textarea class=\"form-control\" rows=\"5\" id=\"comment\"></textarea>\n  <br />\n  <button class=\"btn btn-success\" type=\"submit\" value=\"Save Note!\">Save Note!</button>\n  <button class=\"form-control btn-warning\" type=\"submit\" value=\"Edit\" id=\"example-color-input\"></button>\n  <button class=\"form-control btn-danger\" type=\"submit\" value=\"Delete\" id=\"example-color-input\"></button>\n</div>\n\n";
 
 /***/ }),
-/* 34 */
+/* 30 */
 /***/ (function(module, exports) {
 
 module.exports = "<h2>Sign Up</h2>\n<br />\n\n<div class=\"container signup\">\n<!--   <form action=\"/users\" method=\"post\"> -->\n  <form ng-submit=\"$ctrl.addNewUser()\" id=\"newUser\">\n    <div>\n      <label for=\"firstName\">First name</label>\n      <input type=\"text\" ng-model=\"$ctrl.newUser.firstName\" name=\"firstName\" required=\"required\">\n    </div>\n    <br />\n\n    <div>\n      <label for=\"lastName\">Last name</label>\n      <input type=\"text\" name=\"lastName\" ng-model=\"$ctrl.newUser.lastName\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"email\">Email</label>\n      <input type=\"email\" name=\"email\" ng-model=\"$ctrl.newUser.email\" required=\"required\">\n    </div>\n\n    <br />\n    <div>\n      <label for=\"password\">Password</label>\n      <input type=\"text\" name=\"password\" ng-model=\"$ctrl.newUser.password\" required=\"required\">\n    </div>\n\n    <br />\n    <input type=\"submit\" value=\"Submit\">\n  </form>\n</div>\n";
 
 /***/ }),
-/* 35 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = "<p class=\"user\">\n\t<h1>This is our 'User Dashboard Page' - Project Three</h1>\n\t<!-- Added user email call  -->\n\t<h1> {{ $ctrl.user.email }}</h1>\n</p>\n";
 
 /***/ }),
-/* 36 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(9);
@@ -38660,18 +38559,14 @@ __webpack_require__(3);
 __webpack_require__(14);
 __webpack_require__(4);
 __webpack_require__(15);
-__webpack_require__(16);
-__webpack_require__(17);
 __webpack_require__(5);
-__webpack_require__(18);
+__webpack_require__(16);
 __webpack_require__(6);
-__webpack_require__(19);
+__webpack_require__(17);
 __webpack_require__(7);
-__webpack_require__(20);
-__webpack_require__(21);
-__webpack_require__(22);
+__webpack_require__(18);
 __webpack_require__(8);
-module.exports = __webpack_require__(23);
+module.exports = __webpack_require__(19);
 
 
 /***/ })
