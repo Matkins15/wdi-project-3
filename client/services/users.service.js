@@ -14,6 +14,7 @@ function UsersService($http) {
 	self.loadAll = loadAll;
 	self.deleteJob = deleteJob;
 	self.addNote = addNote;
+	self.updateJob = updateJob;
 
 	// Load current user
 	function loadCurrent(id) {
@@ -47,4 +48,8 @@ function UsersService($http) {
 	function addNote(userId, jobId, newNote) {
 		return $http.post('/users/' + userId + '/jobs/' + jobId + '/notes', newNote);
 	}
+
+	function updateJob(userId, jobId, updatedJob) {
+		return $http.patch('/users/' + userId + '/jobs/' + jobId, updatedJob);
+	} 
 }
