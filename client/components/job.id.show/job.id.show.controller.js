@@ -1,12 +1,13 @@
-JobsShowController.$inject = ['$stateParams', 'UsersService'];
+JobsShowController.$inject = ['$stateParams', 'UsersService', '$state'];
 
-function JobsShowController($stateParams, UsersService) {
+function JobsShowController($stateParams, UsersService, $state) {
 	const vm = this;
 
 	vm.loadCurrentJob = loadCurrentJob;
 	vm.currentJob = {};
 	vm.userId = $stateParams.userId;
 	vm.jobId = $stateParams.jobId;
+	vm.deleteJob = deleteJob;
 
 	activate();
 	function activate() {
@@ -25,6 +26,20 @@ function JobsShowController($stateParams, UsersService) {
 				console.log(response);
 				vm.currentJob = response.data.targetJob;
 			});
+	}
+
+	function deleteJob(userId, jobId) {
+		console.log(userId + jobId);
+		console.log('Reached delete function');
+
+		//HELP IDS NOT BEING SENT TO DELETE
+		UsersService
+			.deleteJob(userId, jobId)
+			.then(function resolve(response) {
+
+				//HELP USERID NOT SENDING TO STATE
+				$state.go('userShow', ({ userId: vm.userId }));
+			})
 	}
 
 //stateParams.userId statesParams.id need to be sent inside loadCurrentJOb(___)

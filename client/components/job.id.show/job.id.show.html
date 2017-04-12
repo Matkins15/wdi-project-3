@@ -12,8 +12,14 @@
 				Phone: {{$ctrl.currentJob.phone}}
 				<br />
 				Website: {{$ctrl.currentJob.website}}
+
+				<button class="btn btn-default" ui-sref="jobsEdit">Edit</button>
+				<form ng-submit="$ctrl.deleteJob({userId: userId, jobId: jobId})">
+				<button class="btn btn-default" >Delete</button>
+				</form>
 			</div>
 		</div>
 	</div>
 </div>
 
+<!-- ui-sref="userShow({userId: $ctrl.userId})" -->

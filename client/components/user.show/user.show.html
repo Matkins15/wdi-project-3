@@ -4,6 +4,7 @@
 	<!-- Added user email call  -->
 <!-- 	<h1> {{ $ctrl.current.email }}</h1> -->
 </p>
+<button class="btn btn-default" ui-sref="jobsNew({ userId: $ctrl.current._id })">Add New Job</button>
 
 <!-- userId: $ctrl.current._id -->
 	<div ng-repeat="jobs in $ctrl.current.jobs">
@@ -19,7 +20,3 @@
 	</div>
 	
 </div>
-<!-- ADD THESE TO INDIVIDUAL JOB SHOW PAGE -->
-<!-- 		 <input class="form-control btn-warning" type="submit" value="Edit" id="example-color-input">
-		 <input class="form-control btn-danger" type="submit" value="Delete" id="example-color-input">
-		 <input class="form-control btn-success" type="submit" value="Submit" id="example-color-input"> -->
