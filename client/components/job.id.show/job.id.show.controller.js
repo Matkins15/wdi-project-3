@@ -15,29 +15,30 @@ function JobsShowController($stateParams, UsersService, $state) {
 	activate();
 	function activate() {
 		loadCurrentJob(vm.userId, vm.jobId);
-		console.log($stateParams);
-		console.log(vm);
+		// console.log($stateParams);
+		// console.log(vm);
 	}
 
 	function loadCurrentJob(userId, jobId) {
-		console.log($stateParams);
+		// console.log($stateParams);
 //make sure when the route loads you make a reference to .userId in the new controller?
 		UsersService
 			.loadCurrentJob(userId, jobId)
 			.then(function resolve(response) {
-				console.log("Returned from service dude!");
-				console.log(response);
+				// console.log("Returned from service dude!");
+				// console.log(response);
 				vm.currentJob = response.data.targetJob;
 			});
 	}
 
+
 	function deleteJob(userId, jobId) {
-		console.log(userId + jobId);
-		console.log('Reached delete function');
+		// console.log(userId + jobId);
+		// console.log('Reached delete function');
 
 		//HELP IDS NOT BEING SENT TO DELETE
 		UsersService
-			.deleteJob(userId, jobId)
+			.deleteJob(vm.userId, vm.jobId)
 			.then(function resolve(response) {
 
 				//HELP USERID NOT SENDING TO STATE
@@ -46,12 +47,16 @@ function JobsShowController($stateParams, UsersService, $state) {
 	}
 
 	function addNote(userId, jobId, newNote) {
-		console.log('we have reached the addNote controller');
-		console.log(vm.newNote);
+		// console.log('we have reached the addNote controller');
+		// console.log(vm.newNote);
 		UsersService
 			.addNote(vm.userId, vm.jobId, vm.newNote)
 			.then(function resolve(response) {
-
+				console.log("response.data.note")
+				console.log(response.data.note);
+				var notes = response.data.note
+				vm.currentJob.notes.push(notes)
+				vm.newNote = {}
 				//HELP Notes being sent, not being accepted, perhaps an iddue with dot.notation?
 				// redirectToDash();
 			});

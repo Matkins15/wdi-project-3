@@ -1,80 +1,49 @@
 <h2>Jobs Board Edit Page</h2>
 <br />
-<div class="container signup">
-  <form action="/users/:id/jobs/:id" method="POST">
+<div ng-show="$ctrl.currentJob">
+  <div class="container signup">
+    <form ng-submit="$ctrl.updateCurrentJob()">
 
-  <div class="form-group row">
-  <label for="example-text-input" class="col-2 col-form-label">Company</label>
- <div class="col-10">
-    <input class="form-control" type="text" value="Company" id="example-text-input" required="required">
-  </div>
- <br />
-</div>
-<div class="form-group row">
- <label for="example-search-input" class="col-2 col-form-label">Job Title</label>
- <div class="col-10">
-   <input class="form-control" type="text" value="Job Title" id="example-search-input" required="required">
- </div>
-  <br />
- </div>
-<div class="form-group row">
-  <label for="example-email-input" class="col-2 col-form-label">Phone</label>
-  <div class="col-10">
-    <input class="form-control" type="tel" value="555-555-5555" id="example-email-input">
- </div>
- <br />
-</div>
- <div class="form-group row">
-   <label for="example-email-input" class="col-2 col-form-label">Email</label>
+    <div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Company</label>
    <div class="col-10">
-    <input class="form-control" type="email" value="LedgR@example.com" id="example-email-input">
+      <input class="form-control" type="text" value="Company" ng-model="$ctrl.updatedJob.company" id="example-text-input" required="required">
+    </div>
+   <br />
+  </div>
+  <div class="form-group row">
+   <label for="example-search-input" class="col-2 col-form-label">Job Title</label>
+   <div class="col-10">
+     <input class="form-control" type="text" value="Job Title" id="example-search-input" ng-model="$ctrl.updatedJob.job_title" required="required">
+   </div>
+    <br />
+   </div>
+  <div class="form-group row">
+    <label for="example-email-input" class="col-2 col-form-label">Phone</label>
+    <div class="col-10">
+      <input class="form-control" type="tel" value="555-555-5555" ng-model="$ctrl.updatedJob.phone" id="example-email-input">
    </div>
    <br />
- </div>
- <div class="form-group row">
-   <label for="example-url-input" class="col-2 col-form-label">Website</label>
-  <div class="col-10">
-     <input class="form-control" type="url" value="https://www.LedgR.com" id="example-url-input">
+  </div>
+   <div class="form-group row">
+     <label for="example-email-input" class="col-2 col-form-label">Email</label>
+     <div class="col-10">
+      <input class="form-control" type="email" value="LedgR@example.com" id="example-email-input" ng-model="$ctrl.updatedJob.email">
+     </div>
+     <br />
    </div>
-   <br />
- </div>
+   <div class="form-group row">
+     <label for="example-url-input" class="col-2 col-form-label">Website</label>
+    <div class="col-10">
+       <input class="form-control" type="url" value="https://www.LedgR.com" id="example-url-input" ng-model="$ctrl.updatedJob.website">
+     </div>
+     <br />
+   </div>
 
-<!-- <form class="form-inline"> -->
-  <label class="mr-sm-2" for="inlineFormCustomSelect">Applied</label>
-  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
-    <option selected>Choose...</option>
-    <option value="1">Yes</option>
-    <option value="2">No</option>
-  </select>
 
-  <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
-    <!-- <input type="checkbox" class="custom-control-input"> -->
-    <!-- <span class="custom-control-indicator"></span> -->
-    <!-- <span class="custom-control-description">Remember my preference</span> -->
-  </label>
-
-  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-<!-- </form> -->
-<div class="form-group row">
-  <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
-  <div class="col-10">
-    <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+      <input class="form-control btn-success" type="submit" value="Submit" id="example-color-input">
+    </form>
+    </div>
   </div>
 </div>
-<br />
 
-<div class="form-group row">
-  <label for="example-datetime-local-input" class="col-2 col-form-label">Created At</label>
-  <div class="col-10">
-    <input class="form-control" type="date"  id="example-datetime-local-input">
-  </div>
-</div>
-<br />
-
-    <input class="form-control btn-success" type="submit" value="Submit" id="example-color-input">
-    <input class="form-control btn-danger" type="submit" value="Delete" id="example-color-input">
-  </div>
-</div>
-<br />
-
-<note>Note Component</note>

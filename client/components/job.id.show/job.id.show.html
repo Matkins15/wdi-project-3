@@ -15,11 +15,13 @@
 				<br />
 
 				<form>
-				<button class="btn btn-default" ui-sref="jobsEdit">Edit</button>
+				<button class="btn btn-default" ui-sref="jobsEdit({userId: $ctrl.userId, jobId: $ctrl.jobId})">Edit</button>
 				</form>
 				<br />
+
 				<form ng-submit="$ctrl.deleteJob({userId: userId, jobId: jobId})">
 				<button class="btn btn-default">Delete</button>
+          
 				</form>
 				<br />
 				<div>
