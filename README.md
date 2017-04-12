@@ -23,9 +23,9 @@ certain detials, and deadlines not to overlook when applying or reapplying.
 
 
 
-**Link to Project on** [Git Hub](#)
+**Link to Project on** [Git Hub](https://github.com/Matkins15/wdi-project-3)
 
-**Link to Project on** [Heroku](#)
+**Link to Project on** [Heroku](https://vast-cove-75102.herokuapp.com/?#!/)
 
 ### Wireframes
 
