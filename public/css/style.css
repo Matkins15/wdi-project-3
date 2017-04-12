@@ -63,8 +63,12 @@ form {
 }
 
 /* User Dashboard Job Card Main */
+<<<<<<< HEAD
+.my.card-block {
+=======
 .card-block {
 
+>>>>>>> 48bfa00bdf029f1e8c4382a673201f4dfcb516b8
 	height: auto;
 	width: 50%;
 	background: #eee;
@@ -78,7 +82,7 @@ form {
 
 }
 
-.card-block:hover {
+.my.card-block:hover {
 	box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.3);
 
 }
