@@ -13,6 +13,7 @@ function UsersService($http) {
 	self.loadCurrentJob = loadCurrentJob;
 	self.loadAll = loadAll;
 	self.deleteJob = deleteJob;
+	self.addNote = addNote;
 
 	// Load current user
 	function loadCurrent(id) {
@@ -41,5 +42,9 @@ function UsersService($http) {
 
 	function deleteJob(userId, jobId) {
 		return $http.delete('/users/' + userId + '/jobs/' + jobId);
+	}
+
+	function addNote(userId, jobId, newNote) {
+		return $http.post('/users/' + userId + '/jobs/' + jobId + '/notes');
 	}
 }

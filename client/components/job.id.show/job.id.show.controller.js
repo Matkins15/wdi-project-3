@@ -2,7 +2,10 @@ JobsShowController.$inject = ['$stateParams', 'UsersService', '$state'];
 
 function JobsShowController($stateParams, UsersService, $state) {
 	const vm = this;
+	const userId = $stateParams.userId;
 
+	vm.addNote = addNote;
+	vm.newNote = {};
 	vm.loadCurrentJob = loadCurrentJob;
 	vm.currentJob = {};
 	vm.userId = $stateParams.userId;
@@ -40,6 +43,18 @@ function JobsShowController($stateParams, UsersService, $state) {
 				//HELP USERID NOT SENDING TO STATE
 				$state.go('userShow', ({ userId: vm.userId }));
 			})
+	}
+
+	function addNote(userId, jobId, newNote) {
+		console.log('we have reached the addNote controller');
+		console.log(vm.newNote);
+		UsersService
+			.addNote(vm.userId, vm.jobId, vm.newNote)
+			.then(function resolve(response) {
+
+				//HELP Notes being sent, not being accepted, perhaps an iddue with dot.notation?
+				// redirectToDash();
+			});
 	}
 
 //stateParams.userId statesParams.id need to be sent inside loadCurrentJOb(___)
