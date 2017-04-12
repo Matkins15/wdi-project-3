@@ -14,6 +14,8 @@ function LoginController ($state, UsersService) {
 	function activate() {}
 
 	function checkLogin(request, response) {
+//HELP DO WE NEED TO DO AUTH HELPER TO GET THE LOGGED IN USER ID
+
 		// var email = request.body.email;
 		// var password = request.body.password;
 		// console.log(vm.password);

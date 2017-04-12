@@ -17,6 +17,17 @@
 				<form ng-submit="$ctrl.deleteJob({userId: userId, jobId: jobId})">
 				<button class="btn btn-default" >Delete</button>
 				</form>
+				<br />
+				<div>
+					<div>
+					Add notes component
+						
+					</div>
+					<div ng-repeat="notes in $ctrl.currentJob.notes">
+						{{notes.notes}}
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
