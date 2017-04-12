@@ -50,7 +50,7 @@ certain detials, and deadlines not to overlook when applying or reapplying.
 ### Contributing Developers:
 
 * [Joy Sutton](http://joysuttonportfolio.bitballoon.com/)
-* Matt Atkins
+* [Matt Atkins](https://matkins15.github.io/Matkins-Portfolio/)
 * [Blake Smith](https://bs3589.github.io/Portfolio/)
 * [Josh Seipel](https://jaguarj.github.io/myportfolio/)
 
