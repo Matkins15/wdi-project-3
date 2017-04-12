@@ -155,20 +155,20 @@ router.patch('/:userId/jobs/:id', function updateAction(request, response) {
 		//find by id job in question
 		//set job by req.body
 	//save user
-
 	User
 		.findById(userId)
 		.exec(function getTargetJob(error, user) {
-			var thisJob = user.jobs.id(id);
-			console.log(thisJob);
-			thisJob.company = request.body.company;
-			thisJob.job_title = request.body.job_title;
-			thisJob.phone = request.body.phone;
-			thisJob.email = request.body.email;
-			thisJob.website = request.body.website;
-			thisJob.applied = request.body.applied;
-			thisJob.created_at = request.body.created_at;
-
+			var targetUser = user;
+			var jobsArray = user.jobs;
+			// console.log(jobsArray);
+			var targetJob = jobsArray.id(request.params.id);
+			// var thisJob = user.jobs.id(id);
+			console.log(targetJob);
+			targetJob.company = request.body.company;
+			targetJob.job_title = request.body.job_title;
+			targetJob.phone = request.body.phone;
+			targetJob.email = request.body.email;
+			targetJob.website = request.body.website;
 			user.save();
 			response.json({message:'Job updated', user: user });
 		})

@@ -49,7 +49,7 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 
 		.state('jobsEdit', {
 			url: '/:userId/jobs/:jobId/edit',
-			template: '<job-edit></job-edit>'
+			template: '<jobs-edit></jobs-edit>'
 		});
 
 
