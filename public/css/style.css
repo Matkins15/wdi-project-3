@@ -79,12 +79,12 @@ body {
 	text-align: center;
 }
 
-form {
+/*form {
     border: 3px solid #f1f1f1;
 		width: 500px;
 		margin: auto;
 		box-shadow: 20px 20px 10px #888888;
-}
+}*/
 
 input[type=email], input[type=password] {
     width: 100%;
@@ -123,6 +123,8 @@ input[type=email], input[type=password] {
 #newUser {
 	background-color: #fff;
 	box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
+	width: 50vw;
+	margin: auto;
 }
 
 /* insert image in below class*/
@@ -139,6 +141,8 @@ input[type=email], input[type=password] {
 #login-start {
 	background-color: #fff;
 	box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
+	width: 50vw;
+	margin: auto;
 }
 
 form input {
