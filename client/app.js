@@ -58,13 +58,14 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 		// 	template: '<job-show></job-show>'
 		// })
 
-		.state('jobIdShow', {
+		.state('jobId', {
+			// url: '/potato',
 			url: '/:userId/jobs/:jobId',
-			template: '<job-id-show></job-id-show>'
+			template: '<job-id></job-id>'
 		})
 
 		.state('jobsEdit', {
-			url: '/:userId/jobs/:jobId',
+			url: '/:userId/jobs/:jobId/edit',
 			template: '<job-edit></job-edit>'
 		});
 

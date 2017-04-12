@@ -29,7 +29,8 @@ function UsersService($http) {
 		return $http.post('/users/' + userId + '/jobs', newJob);
 	}
 
-	function loadCurrentJob(id) {
-		return $http.get('/users/' + userId + '/jobs/' + id);
+	// Load current Job
+	function loadCurrentJob(userId, jobId) {
+		return $http.get('/users/' + userId + '/jobs/' + jobId);
 	}
 }
