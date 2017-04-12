@@ -45,6 +45,6 @@ function UsersService($http) {
 	}
 
 	function addNote(userId, jobId, newNote) {
-		return $http.post('/users/' + userId + '/jobs/' + jobId + '/notes');
+		return $http.post('/users/' + userId + '/jobs/' + jobId + '/notes', newNote);
 	}
 }

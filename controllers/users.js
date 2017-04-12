@@ -107,7 +107,7 @@ router.post('/:userId/jobs', function createJobAction(request, response) {
 //POST User.Jobs.Notes
 router.post('/:userId/jobs/:id/notes', function createNoteAction(request, response) {
 	console.log('### User.Job.Note ###');
-	var jobId =request.params.id;
+	var jobId = request.params.id;
 	User.findById(request.params.userId)
 		.exec(function(err, user) {
 			console.log(user);
@@ -115,27 +115,31 @@ router.post('/:userId/jobs/:id/notes', function createNoteAction(request, respon
 			var jobsArray = user.jobs;
 			// console.log(jobsArray);
 			var targetJob = jobsArray.id(request.params.id);
+			// var newNote = request.body;
+			console.log("####LOOK HERE####");
 			// console.log(targetJob);
-			Jobs.findById(request.params.id)
-				.exec(function(err, jobs) {
-					console.log(targetJob);
-					user.jobs.push(new Notes(request.body));
-						console.log('### Note added to DB ###');
-					user.save(function(err) {
-						if (err) console.log(err);
-
-						response.json({ user: user });
-					});
-				});
-
-			console.log(targetJob);
-			targetJob.notes.push(new Notes(request.body));
+			// console.log(request.body);
+			//THIS IS THE BREAK POINT
+			var newNote = new Notes(request.body)
+			targetJob.notes.push(newNote);
+			// console.log(user);
+			console.log(targetJob.notes)
+			// console.log(response.body);
 				console.log('### Note added to DB ###');
 			user.save(function(err) {
 				if (err) console.log(err);
-
-				response.json({ user: user });
+				response.json({ note: newNote });
 			});
+				
+
+			// console.log(targetJob);
+			// targetJob.notes.push(new Notes(request.body));
+			// 	console.log('### Note added to DB ###');
+			// user.save(function(err) {
+			// 	if (err) console.log(err);
+
+			// 	response.json({ user: user });
+			// });
 		});
 });
 
