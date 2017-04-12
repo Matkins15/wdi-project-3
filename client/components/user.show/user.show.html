@@ -7,7 +7,7 @@
 
 <!-- userId: $ctrl.current._id -->
 	<div ng-repeat="jobs in $ctrl.current.jobs">
-		<a ui-sref="jobIdShow({ jobId: jobs._id, userId: $ctrl.current._id })">
+		<a ui-sref="jobId({ jobId: jobs._id, userId: $ctrl.current._id })">
 			<div>
 			{{jobs.company}}
 			{{jobs.job_title}}

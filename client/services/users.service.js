@@ -24,7 +24,6 @@ function UsersService($http) {
 
 	function addJob(userId, newJob) {
 
-		//NEED TO FIND OUT ABOUT GETTING USERID FOR POST
 		console.log('we are in services');
 		return $http.post('/users/' + userId + '/jobs', newJob);
 	}

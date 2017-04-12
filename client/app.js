@@ -31,11 +31,6 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 			template: '<login></login>'
 		})
 
-		.state('newUser', {
-			url: '/newUser',
-			template: '<new-user></new-user>'
-		})
-
 		.state('userShow', {
 			url: '/:userId',
 			template: '<user-show></user-show>'
@@ -45,18 +40,6 @@ function uiRouterSetup($stateProvider, $urlRouterProvider) {
 			url: '/:userId/jobs',
 			template: '<jobs-new></jobs-new>'
 		})
-
-		// .state('jobsShow', {
-		// 	// HEY, /:userId/jobs? MIGHT NOT NEED
-		// 	url: '/:userId/jobs',
-		// 	template: '<jobs-show></jobs-show>'
-		// 	// template: '<job-new></job-new>'
-		// })
-
-		// .state('jobsShow', {
-		// 	url: '/:userId/show',
-		// 	template: '<job-show></job-show>'
-		// })
 
 		.state('jobId', {
 			// url: '/potato',
