@@ -1,3 +1,7 @@
+body {
+	margin: 10px 50px 0px 50px;
+	text-align: center;
+}
 
 
 .navbar.navbar-default {
@@ -17,10 +21,7 @@ form {
 	border-radius: 20px;
 }
 
-/*.home-background {
-	height: 100vh;
-}*/
-
+/*Main Div Layout*/
 .home {
 	background-image: url('https://source.unsplash.com/aG-pvyMsbis');
 	background-repeat: no-repeat;
@@ -50,30 +51,148 @@ form {
 	margin: auto;
 	border-radius: 20px;
 	box-shadow: 10px 10px 10px rgba(0,0,0, 0.5);
-	/*#888888 0.8;*/
+
 }
 
+
+/*//// Dashboard Classes ////*/
+
+/* User Dashboard Page */
+.dashboard-content {
+	height: 100vh;
+}
+
+/* User Dashboard Job Card Main */
+.card-block {
+
+	height: auto;
+	width: 50%;
+	background: #eee;
+	margin: 0 auto;
+	margin-top: 3rem;
+	padding: 1rem;
+	border-radius: 10px;
+	font-size: 2rem;
+	text-align: center;
+	transition: all 1s ease-in-out;
+
+}
+
+.card-block:hover {
+	box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.3);
+
+}
+
+/*//// Add Job Dashboard Classes ////*/
+
+.add-jobs {
+	height: auto;
+	width: 50%;
+	background: #eee;
+	margin: 0 auto;
+	margin-top: 1rem;
+	margin-bottom: 3rem;
+	padding: 1rem;
+	border-radius: 10px;
+	font-size: 2rem;
+	text-align: center;
+	transition: all 1s ease-in-out;
+
+}
+
+.add-jobs:hover {
+	box-shadow: 1px 1px 15px 1px rgba(0,0,0,0.3);
+
+}
+
+
+.my.form-group.row {
+/*	background: yellow;*/
+	margin: 0;
+	padding: 0;
+	width: 100%;
+
+}
+
+.my.form-group.row {
+
+}
+
+#add-submit {
+	padding: 0;
+	margin-left: 20%;
+}
+
+.form-control {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.my-input {
+	justify-content: center;
+	border-radius: 10px;
+}
+
+#my-input {
+	baackground: blue;
+	text-align: center;
+	margin: 0;
+
+}
+
+
+#login-container {
+	background-image: url('https://source.unsplash.com/nJdwUHmaY8A');
+	background-repeat: no-repeat;
+	background-size: cover;
+	box-shadow: 1px 1px 15px 1px rgba(0,0,0,0.3);
+	height: 100vh;
+
+}
+
+
+/*//// Add Job Id Dashboard Classes ////*/
+.my-job-id {
+	/*background: red;*/
+	height: 75%;
+	width: 50%;
+	background: #eee;
+	margin: 0 auto;
+	margin-top: 1rem;
+	margin-bottom: 3rem;
+	padding-top: 6rem;
+	border-radius: 10px;
+	font-size: 2rem;
+	text-align: center;
+	transition: all 1s ease-in-out;
+
+
+}
+
+/*//// Add Job Id Dashboard Classes ////*/
+.my-job-id:hover {
+	box-shadow: 1px 1px 15px 1px rgba(0,0,0,0.3);
+
+}
+
+
+
+/* Job Cards Div
 #jobCards {
-	width: 170px;
+/*	width: 170px;
 	height: 240px;
 	margin: 20px;
 	display: inline-flex;
 	background-color: lightgrey;
-}
+	color: red;*/
+/*}*/
 
-.card-block {
-	height: 600px;
-	width: 420px;
-	padding: 10px;
-	margin: auto;
-	padding: 70px 0;
-	text-align: center;
-}
 
-body {
-	margin: 10px 50px 0px 50px;
-	text-align: center;
-}
+
+
+
+
 
 /*form {
     border: 3px solid #f1f1f1;
