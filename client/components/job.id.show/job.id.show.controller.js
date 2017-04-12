@@ -31,13 +31,12 @@ function JobsShowController($stateParams, UsersService, $state) {
 			});
 	}
 
-	function deleteJob(userId, jobId) {
-		console.log(userId + jobId);
+	function deleteJob() {
 		console.log('Reached delete function');
 
 		//HELP IDS NOT BEING SENT TO DELETE
 		UsersService
-			.deleteJob(userId, jobId)
+			.deleteJob(vm.userId, vm.jobId)
 			.then(function resolve(response) {
 
 				//HELP USERID NOT SENDING TO STATE
