@@ -192,6 +192,8 @@ router.delete('/:userId/jobs/:id', function destroyJobAction(request, response) 
 
 	var userId = request.params.userId;
 	var jobId = request.params.id;
+	console.log(userId);
+	console.log(jobId);
 
 	User
 		.findByIdAndUpdate(userId, {
@@ -199,7 +201,8 @@ router.delete('/:userId/jobs/:id', function destroyJobAction(request, response) 
 				jobs: {_id: jobId}
 			}
 		})
-		.exec(function() {
+		.exec(function(error, user) {
+			if (error) console.log(error);
 			response.json({message: 'Job successfully deleted'});
 		});
 
